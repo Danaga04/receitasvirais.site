@@ -2027,8 +2027,64 @@ h6 {
         }
             setTimeout(show_notification, 4 * 1000);
 </script></div></div></div></div></div></div></div></div></div><div class="atomicat-container-e7d6c34 atomicat-big-outer-container     "><style id="atomicat-style-e7d6c34">.atomicat-container-e7d6c34 > .atomicat-outer-container {}.atomicat-entrance-animation-e7d6c34 {}.atomicat-container-e7d6c34 > .atomicat-outer-container > .atomicat-container {min-height: 312px;flex-direction: row;}@media screen and (max-width: 480px) {.atomicat-container-e7d6c34 > .atomicat-outer-container > .atomicat-container{min-height: 0px;}}.atomicat-big-container .atomicat-container-e7d6c34.atomicat-big-outer-container {min-height: 312px;background: rgba(247, 189, 87, 1);background-size: cover;background-repeat: no-repeat;background-position: center;}@media screen and (max-width: 480px) {.atomicat-big-container .atomicat-container-e7d6c34.atomicat-big-outer-container{min-height: 0px;}}.atomicat-container-e7d6c34 > .atomicat-outer-container {min-height: 312px;}@media screen and (max-width: 480px) {.atomicat-container-e7d6c34 > .atomicat-outer-container{min-height: 0px;}}</style><div class="atomicat-outer-container     atomicat-container-boxed  "><div class="atomicat-container atomicat-inner-container  "><div class="atomicat-container-0e3d6f9 atomicat-big-outer-container     "><style id="atomicat-style-0e3d6f9">.atomicat-container-0e3d6f9 > .atomicat-outer-container {}.atomicat-entrance-animation-0e3d6f9 {}.atomicat-container-0e3d6f9 > .atomicat-outer-container > .atomicat-container {flex-direction: column;}.atomicat-big-container .atomicat-container-0e3d6f9.atomicat-big-outer-container {background-size: cover;background-repeat: no-repeat;background-position: center;width: 100%;}@media screen and (max-width: 480px) {.atomicat-big-container .atomicat-container-0e3d6f9.atomicat-big-outer-container{width: 100%;}}.atomicat-container-0e3d6f9 > .atomicat-outer-container {}</style><div class="atomicat-outer-container     atomicat-container-full-width  "><div class="atomicat-container atomicat-inner-container  "><div class="atomicat-component-container  atomicat-component-container-b7bf998  atomicat-relative  "><style id="atomicat-style-b7bf998">.atomicat-component-container-b7bf998 {}.atomicat-html-b7bf998 .atomicat-inner-element-container iframe {} .atomicat-component-container-b7bf998 > .atomicat-element-container {} .atomicat-component-container-b7bf998 > .atomicat-element-container:hover {}.atomicat-entrance-animation-b7bf998 {}</style><div class="atomicat-element-container atomicat-relative atomicat-element-container-b7bf998 atomicat-html-b7bf998 atomicat-html    "><div class="atomicat-inner-element-container"><script src="js/latest.js" data-utmify-prevent-xcod-sck="" data-utmify-prevent-subids="" async="" defer=""></script></div></div></div></div></div></div></div></div></div></div>
-        
-     
+
+
+<script>
+  // ALTERE O LINK PARA A PÁGINA QUE QUISER MOSTRAR QUANDO O USUÁRIO TENTAR SAIR
+  const link = 'https://lastlink.com/p/C077EB63F/checkout-payment/';
+
+  function setBackRedirect(url) {
+    let urlBackRedirect = url;
+    urlBackRedirect = urlBackRedirect =
+      urlBackRedirect.trim() +
+      (urlBackRedirect.indexOf('?') > 0 ? '&' : '?') +
+      document.location.search.replace('?', '').toString();
+
+    history.pushState({}, '', location.href);
+    history.pushState({}, '', location.href);
+    history.pushState({}, '', location.href);
+
+    window.addEventListener('popstate', () => {
+      console.log('onpopstate', urlBackRedirect);
+      setTimeout(() => {
+        location.href = urlBackRedirect;
+      }, 1);
+    });
+  }
+
+  setBackRedirect(link);
+</script>
+
+
+
+
+	
+<script
+  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+  data-utmify-prevent-xcod-sck
+  data-utmify-prevent-subids
+  async
+  defer
+></script>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1098587981234833');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1098587981234833&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+	
         
         <script src="js/dfkKeW6148194.js" charset="utf-8" id="atomicat-js"></script>
         <script>document.addEventListener("DOMContentLoaded",(()=>{document.querySelectorAll("a").forEach((e=>{e.getAttribute("href")?.includes("#")||(e.getAttribute("href")?.includes("?")?e.setAttribute("href",e.getAttribute("href")+window.location.search.replace("?","&")):e.getAttribute("href")?e.setAttribute("href",e.getAttribute("href")+window.location.search):"")}))}));</script>

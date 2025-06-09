@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - 21 Frases Discretas</title>
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            font-family: 'Poppins', 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+        }
+        .container {
+            max-width: 900px;
+            padding: 40px 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            margin: 20px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+        img:hover {
+            transform: scale(1.05);
+        }
+        .button {
+            background-color: #ff0000;
+            color: #ffffff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            margin: 10px;
+            display: inline-block;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+            opacity: 0.9;
+        }
+        .button-green {
+            background-color: #00cc00;
+        }
+        .button-pink {
+            background-color: #ff69b4;
+        }
+        .button-blue {
+            background-color: #1e90ff;
+        }
+        .button-gray {
+            background-color: #808080;
+        }
+        .question {
+            font-size: 28px;
+            margin: 30px 0;
+            font-weight: 700;
+            color: #ffd700;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 30px 0;
+        }
+        h1 {
+            font-size: 36px;
+            font-weight: 800;
+            color: #ffd700;
+            margin: 20px 0;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        h2 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 15px 0;
+        }
+        h3 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #ffd700;
+            margin: 15px 0;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin: 10px 0;
+            color: #e0e0e0;
+        }
+        .highlight {
+            color: #ff0000;
+            font-weight: 700;
+        }
+        ul {
+            text-align: left;
+            display: inline-block;
+            font-size: 18px;
+            line-height: 1.8;
+            color: #e0e0e0;
+            padding-left: 20px;
+        }
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .page.active {
+            display: block;
+        }
+        .progress-bar {
+            width: 100%;
+            background-color: #333;
+            border-radius: 10px;
+            height: 20px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        .progress {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #ff0000, #ffd700);
+            border-radius: 10px;
+            transition: width 3s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px 15px;
+                margin: 10px;
+            }
+            h1 {
+                font-size: 28px;
+            }
+            h2 {
+                font-size: 22px;
+            }
+            .question {
+                font-size: 22px;
+            }
+            .button {
+                padding: 12px 25px;
+                font-size: 16px;
+            }
+            p, ul {
+                font-size: 16px;
+            }
+            .progress-bar {
+                height: 15px;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Página Inicial -->
+        <div id="page-0" class="page active">
+            <img src="https://institutoenlinea.site/wp-content/webp-express/webp-images/uploads/2024/06/54ETERG.png.webp" alt="Imagem Inicial">
+            <h1>Tenha qualquer homem completamente obcecado por você em apenas 7 dias</h1>
+            <p>Apenas enviando uma “<span class="highlight">FRASE DISCRETA</span>” que começa com a letra “F” no whatsapp dele!</p>
+            <p>Faça qualquer homem pensar em você <span class="highlight">obsessivamente</span> todos os dias antes de dormir…</p>
+            <p>Ele vai rastejar até a sua porta <span class="highlight">implorando</span> para ter uma chance com você!</p>
+            <p>Responda este pequeno questionário para saber se está pronta para ter acesso a essa “<span class="highlight">frase discreta</span>” que tem o poder de comandar a mente de qualquer homem…</p>
+            <p>Levará menos de 1 minuto</p>
+            <a href="#" class="button button-green" onclick="nextPage(1)">SIM, VAMOS COMEÇAR!</a>
+        </div>
+
+        <!-- Questão 1 -->
+        <div id="page-1" class="page">
+            <h2>QUESTÃO 1 DE 9</h2>
+            <img src="https://institutoenlinea.site/wp-content/uploads/2024/06/Design-sem-nome.png" alt="Imagem Questão 1">
+            <div class="question">Qual o seu gênero?</div>
+            <p>Selecione a sua resposta</p>
+            <div class="options">
+                <a href="#" class="button button-pink" onclick="nextPage(2)">MULHER</a>
+                <a href="#" class="button button-blue" onclick="nextPage(2)">HOMEM</a>
+                <a href="#" class="button button-gray" onclick="nextPage(2)">PREFIRO NÃO DIZER</a>
+            </div>
+        </div>
+
+        <!-- Questão 2 -->
+        <div id="page-2" class="page">
+            <h2>QUESTÃO 2 DE 9</h2>
+            <img src="https://institutoenlinea.site/wp-content/webp-express/webp-images/uploads/2024/06/FGDHFDHDS.png.webp" alt="Imagem Questão 2">
+            <div class="question">Qual a sua idade?</div>
+            <p>Selecione a sua resposta</p>
+            <div class="options">
+                <a href="#" class="button" onclick="nextPage(3)">Entre 18 e 25 anos</a>
+                <a href="#" class="button" onclick="nextPage(3)">Entre 25 e 35 anos</a>
+                <a href="#" class="button" onclick="nextPage(3)">Entre 35 e 45 anos</a>
+                <a href="#" class="button" onclick="nextPage(3)">Mais de 45 anos</a>
+            </div>
+        </div>
+
+        <!-- Questão 3 -->
+        <div id="page-3" class="page">
+            <h2>QUESTÃO 3 DE 9</h2>
+            <img src="https://institutoenlinea.site/wp-content/webp-express/webp-images/uploads/2024/06/Design-sem-nome-1-3.png.webp" alt="Imagem Questão 3">
+            <div class="question">Você já se sentiu insegura ao tentar chamar a atenção de um homem?</div>
+            <p>Selecione a sua resposta</p>
+            <div class="options">
+                <a href="#" class="button" onclick="nextPage(4)">Sim, frequentemente. Fico nervosa e insegura, me perguntando se sou suficiente</a>
+                <a href="#" class="button" onclick="nextPage(4)">Às vezes. Tenho momentos de dúvida, mas tento manter a confiança</a>
+                <a href="#" class="button" onclick="nextPage(4)">As vezes tento superar a insegurança mas acabo estragando tudo na hora H</a>
+            </div>
+        </div>
+
+        <!-- Questão 4 -->
+        <div id="page-4" class="page">
+            <h2>QUESTÃO 4 DE 9</h2>
+            <img src="https://institutoenlinea.site/wp-content/webp-express/webp-images/uploads/2024/06/Design-sem-nome-7-1.png.webp" alt="Imagem Questão 4">
+            <div class="question">Você acredita que sua aparência física é o único fator para atrair homens?</div>
+            <p>Selecione a sua resposta</p>
+            <div class="options">
+                <a href="#" class="button" onclick="nextPage(5)">Sim, acredito que é o mais importante para os homens. Fico obcecada em parecer perfeita</a>
+                <a href="#" class="button" onclick="nextPage(5)">Em grande parte, sim. Sinto que a aparência faz muita diferença na hora da conquista, mesmo que não seja tudo</a>
+                <a href="#" class="button" onclick="nextPage(5)">Acredito que personalidade e confiança também são essenciais, mas os homens não acham isso tão importante</a>
+            </div>
+        </div>
+
+        <!-- Página Intermediária 5 -->
+        <div id="page-5" class="page">
+            <h2>NEUROCIENTISTAS DESCOBRIRAM…</h2>
+            <p>Existem “<span class="highlight">21 Frases Discretas</span>” que tem o mesmo efeito da Pornografia e do Sexo na cabeça dos homens…</p>
+            <p>Isso porque elas têm o poder de liberar altas doses do “<span class="highlight">Hormônio do Vício</span>” na cabeça deles…</p>
+            <p>Imagine ser capaz de:</p>
+            <ul>
+                <li>Despertar o <span class="highlight">desejo</span> mais profundo e instintivo nele apenas com uma simples frase</li>
+                <li>Criar uma conexão imediata e <span class="highlight">intensa</span>, que faz o coração dele bater mais rápido só de ler essas frases</li>
+                <li>Se tornar <span class="highlight">inesquecível</span> para qualquer homem que você desejar</li>
+            </ul>
+            <p>Pronta para descobrir como usar essas “<span class="highlight">Frases Discretas</span>” a seu favor?</p>
+            <a href="#" class="button" onclick="nextPage(6)">SIM, QUERO CONTINUAR!</a>
+        </div>
+
+        <!-- Questão 5 -->
+        <div id="page-6" class="page">
+            <h2>QUESTÃO 5 DE 9</h2>
+            <img src="https://institutoenlinea.site/wp-content/webp-express/webp-images/uploads/2024/06/Design-sem-nome-8-1.png.webp" alt="Imagem Questão 5">
+            <div class="question">Você gostaria de se sentir mais segura e confiante ao interagir com qualquer homem?</div>
+            <p>Selecione a sua resposta</p>
+            <div class="options">
+                <a href="#" class="button" onclick="nextPage(7)">Sim, definitivamente. Isso me daria uma nova personalidade</a>
+                <a href="#" class="button" onclick="nextPage(7)">Sim, muito. Me ajudaria a superar minha timidez e inseguranças</a>
+                <a href="#" class="button" onclick="nextPage(7)">Sim, acho que seria ótimo. Me ajudaria a ser mais assertiva nos meus relacionamentos</a>
+            </div>
+        </div>
+
+        <!-- Questão 6 -->
+        <div id="page-7" class="page">
+            <h2>QUESTÃO 6 DE 9</h2>
+            <img src="https://institutoenlinea.site/wp-content/webp-express/webp-images/uploads/2024/06/Design-sem-nome-10-1.png.webp" alt="Imagem Questão 6">
+            <div class="question">Se você pudesse usar técnicas comprovadas para despertar o desejo de um homem, como isso mudaria sua vida amorosa?</div>
+            <p>Selecione a sua resposta</p>
+            <div class="options">
+                <a href="#" class="button" onclick="nextPage(8)">Mudaria completamente. Me sentiria poderosa e desejada</a>
+                <a href="#" class="button" onclick="nextPage(8)">Melhoraria muito. Finalmente teria a atenção que mereço</a>
+                <a href="#" class="button" onclick="nextPage(8)">Faria uma grande diferença. Me sentiria mais confiante nos meus relacionamentos</a>
+            </div>
+        </div>
+
+        <!-- Página Intermediária 8 -->
+        <div id="page-8" class="page">
+            <h2>A EX-BBB E INFLUENCIADORA MAÍRA CARDI</h2>
+            <p>CONFESSOU EM UM PODCAST QUE JÁ USOU O TRUQUE DAS <span class="highlight">21 FRASES DISCRETAS</span></p>
+            <img src="https://institutoenlinea.site/wp-content/webp-express/webp-images/uploads/2024/06/maira-768x415.png.webp" alt="Imagem Maíra Cardi">
+            <p>Recentemente a Maíra Cardi revelou em um podcast que já usou esse <span class="highlight">truque sujo</span> para seduzir o seu atual marido Tiago Nigro</p>
+            <img src="https://institutoenlinea.site/wp-content/webp-express/webp-images/uploads/2024/06/dsds.png.webp" alt="Imagem Relacionamento">
+            <p>E fez com que ele terminasse um relacionamento com mais de 12 anos, para ficar com ela logo no <span class="highlight">primeiro mês</span> em que se conheceram!</p>
+            <p>Esse truque gerou uma <span class="highlight">obsessão</span> tão forte nele que no 2 mês eles já se oficializaram noivos!</p>
+            <img src="https://institutoenlinea.site/wp-content/webp-express/webp-images/uploads/2024/06/fdsfd.png.webp" alt="Imagem Noivos">
+            <p>E não parou por aí…</p>
+            <p>Esse “<span class="highlight">truquezinho sujo</span>” gerou uma obsessão tão forte dele pela Maíra Cardi, que fez com que ele se casasse com ela</p>
+            <img src="https://institutoenlinea.site/wp-content/webp-express/webp-images/uploads/2024/06/edwasDAS.png.webp" alt="Imagem Casamento">
+            <p>Esse truque das <span class="highlight">21 Frases Discretas</span> é tão poderoso que conseguiu fazer um homem multimilionário largar um relacionamento de mais de 12 anos… e ainda se casar com <span class="highlight">comunhão total de bens</span>!</p>
+            <p>Está preparada pra colocar esse “<span class="highlight">truque sujo</span>” em prática ainda hoje?</p>
+            <a href="#" class="button" onclick="nextPage(9)">SIM, QUERO CONTINU Fire!</a>
+        </div>
+
+        <!-- Questão 8 -->
+        <div id="page-9" class="page">
+            <h2>QUESTÃO 8 DE 9</h2>
+            <img src="https://institutoenlinea.site/wp-content/webp-express/webp-images/uploads/2024/06/Design-sem-nome-9-1.png.webp" alt="Imagem Questão 8">
+            <div class="question">Você se imagina mais confiante e atraente usando essas técnicas exclusivas de sedução?</div>
+            <p>Selecione a sua resposta</p>
+            <div class="options">
+                <a href="#" class="button" onclick="nextPage(10)">Sim, me vejo completamente transformada e confiante</a>
+                <a href="#" class="button" onclick="nextPage(10)">Com certeza. Essas técnicas seriam um grande impulso para minha autoestima</a>
+                <a href="#" class="button" onclick="nextPage(10)">Sim, acredito que isso me faria sentir muito mais atraente e segura</a>
+                <a href="#" class="button" onclick="nextPage(10)">Sem dúvida. Essas técnicas seriam exatamente o que preciso para me destacar das outras</a>
+            </div>
+        </div>
+
+        <!-- Questão 9 -->
+        <div id="page-10" class="page">
+            <h2>QUESTÃO 9 DE 9</h2>
+            <img src="https://institutoenlinea.site/wp-content/webp-express/webp-images/uploads/2024/06/Design-sem-nome-11-1.png.webp" alt="Imagem Questão 9">
+            <div class="question">Você gostaria de aprender as <span class="highlight">21 Frases Discretas</span> que tem um poder de despertar um <span class="highlight">desejo instantâneo</span> nos homens?</div>
+            <p>Selecione a sua resposta</p>
+            <div class="options">
+                <a href="#" class="button" onclick="nextPage(11)">Sim, adoraria! Isso parece ser a chave para o sucesso nas minhas relações</a>
+                <a href="#" class="button" onclick="nextPage(11)">Com certeza. Ter essa informação seria revolucionário para mim</a>
+                <a href="#" class="button" onclick="nextPage(11)">Claro, isso parece exatamente o que eu preciso</a>
+                <a href="#" class="button" onclick="nextPage(11)">Sim, estou muito curiosa para saber mais sobre esses gatilhos</a>
+            </div>
+        </div>
+
+        <!-- Resultado -->
+        <div id="page-11" class="page">
+            <h2>Seu resultado…</h2>
+            <h3>VOCÊ FOI <span class="highlight">SELECIONADA</span> PARA TER ACESSO ÀS “<span class="highlight">21 FRASES DISCRETAS</span>”</h3>
+            <p>Para que você consiga ter qualquer homem aos seus pés em apenas <span class="highlight">7 dias</span></p>
+            <div class="progress-bar">
+                <div class="progress" id="progress"></div>
+            </div>
+            <p>Você saberá exatamente quais passos seguir</p>
+            <p>VOCÊ ESTÁ <span class="highlight">PRONTA</span>?</p>
+        </div>
+    </div>
+
+    <script>
+        function nextPage(pageNumber) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById('page-' + pageNumber).classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            if (pageNumber === 11) {
+                setTimeout(() => {
+                    const progress = document.getElementById('progress');
+                    progress.style.width = '0%';
+                    setTimeout(() => {
+                        progress.style.width = '100%';
+                        setTimeout(() => {
+                            window.location.href = 'redirect.html';
+                        }, 3000);
+                    }, 100);
+                }, 100);
+            }
+        }
+    </script>
+</body>
+</html>

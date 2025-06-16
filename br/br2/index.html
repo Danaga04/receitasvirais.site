@@ -1,225 +1,158 @@
-<!DOCTYPE html><html lang="pt-br"><head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Brigadeiros Sem Fogo - Quiz</title>
+<!DOCTYPE html><html lang="pt-BR"><head>
+  <script async="" src="https://www.clarity.ms/tag/pgogyytovf"></script><script async="" src="https://www.clarity.ms/tag/pgogyytovf"></script>
+  <script async="" src="https://www.clarity.ms/tag/pgogyytovf"></script>
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "pgogyytovf");
+  </script>
 
-  <script async="" src="js/fbevents.js"></script><script>
-    window.pixelId = "683b3ed3b67da67997e52c5d";
+  <script src="js/latest.js" data-utmify-prevent-xcod-sck="" data-utmify-prevent-subids="" async="" defer=""></script>
+
+  <script>
+    window.pixelId = "6778a53312ce528775b29b64";
     var a = document.createElement("script");
     a.setAttribute("async", "");
     a.setAttribute("defer", "");
     a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
     document.head.appendChild(a);
   </script><script async="" defer="" src="js/pixel.js"></script>
-  <script async="" defer="" src="js/pixel_1.js"></script>
-  <script src="js/latest.js" data-utmify-prevent-xcod-sck="" data-utmify-prevent-subids="" async="" defer=""></script>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spotify Avaliação - VSL</title>
 
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
   <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      margin: 0;
-      background: #fff;
-      font-family: 'Poppins', sans-serif;
-      font-weight: 700;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #FFFFFF;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .header {
+      width: 100%;
+      background-color: #1DB954;
+      color: white;
+      font-weight: bold;
       text-align: center;
-    }
-    .logo-topo {
-      width: 120px;
-      margin: 20px auto 10px auto;
-      display: none;
-    }
-    .progress-container {
-      width: 90%;
-      background-color: #e0e0e0;
-      border-radius: 20px;
-      margin: 0 auto 10px auto;
-      height: 15px;
-      overflow: hidden;
-      display: none;
-    }
-    .progress {
-      height: 100%;
-      width: 0;
-      background-color: #28a745;
-      border-radius: 20px;
-      transition: width 0.3s;
-    }
-    .quiz-container {
-      max-width: 500px;
-      margin: auto;
       padding: 10px;
+      font-size: 16px;
     }
-    .quiz-image {
-      width: 80%;
-      max-width: 300px;
-      border: 5px solid #5C4033;
-      border-radius: 12px;
-      display: block;
-      margin: 0 auto 20px auto;
-    }
-    .question {
-      font-size: 22px;
-      margin: 20px 0;
-    }
-    .options button {
-      display: block;
-      width: 90%;
-      margin: 10px auto;
+    #p1 {
+      width: 100%;
+      max-width: 400px;
+      background-color: #FFFFFF;
       padding: 15px;
-      background-color: #28a745;
-      color: #fff;
+      border-bottom: 1px solid #202020;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    #logo { width: 70px; margin-left: 5px; }
+    .boxSaldo {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      border: 2px solid #1DB954;
+      border-radius: 6px;
+      padding: 5px 10px;
+      margin-right: 5px;
+    }
+    .textoSaldo { font-size: 10px; font-weight: bold; background: #fff; padding: 2px 5px; color: #333; }
+    .valorSaldo { font-size: 14px; font-weight: 700; color: #333; }
+    #produto1 {
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+      padding: 15px;
+      margin-bottom: 20px;
+    }
+    #produto1 h4 { color: #1DB954; font-size: 18px; margin-bottom: 10px; }
+    .centralizar { width: 100%; display: flex; justify-content: center; }
+    button {
+      background-color: #1DB954;
+      color: white;
       border: none;
-      border-radius: 8px;
-      font-size: 18px;
+      border-radius: 5px;
+      width: 85%;
+      max-width: 300px;
+      height: 50px;
+      font-weight: bold;
       cursor: pointer;
       transition: background-color 0.3s;
     }
-    .options button:hover {
-      background-color: #218838;
-    }
-    .progress-bar-container {
-      width: 90%;
-      background-color: #e0e0e0;
-      border-radius: 20px;
-      margin: 20px auto;
-      height: 25px;
-      overflow: hidden;
-    }
-    .progress-bar {
-      height: 100%;
-      width: 0;
-      background-color: #28a745;
-      border-radius: 20px;
-      transition: width 0.2s;
-    }
-    .loading-text {
-      font-size: 18px;
-      margin-top: 15px;
-    }
-    .fade-in {
-      opacity: 0;
-      animation: fadeIn 0.5s forwards;
-    }
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-      }
+    button:hover { background-color: #17a74a; }
+    .elementor-element:has(#vid_6734b3c53c47ae000a0b7ef7) { width: 100%; }
+    @media (max-width: 480px) {
+      #p1 { flex-direction: row; justify-content: space-between; }
     }
   </style>
+  <script src="js/player_1.js" async=""></script>
+  <script src="../../scripts.converteai.net/d1033f1b-c54a-49db-9c7d-28dd889df5a9/players/6734b3c53c47ae000a0b7ef7/player.js" async=""></script>
+  <script src="js/player_2.js" async=""></script>
 </head>
+
 <body>
-  <img src="images/Logo-simples-pra-confeitaria-rosaFESFSFS-150x150.jpg.webp" class="logo-topo" id="logoTopo" style="display: none;">
-  <div class="progress-container" id="progressContainer" style="display: none;">
-    <div class="progress" id="progress" style="width: 0%;"></div>
+  <div class="header">
+    ASSISTA O VÍDEO ABAIXO PARA LIBERAR SEU SAQUE E ACESSO VITALÍCIO.
   </div>
 
-  <div class="quiz-container">
-    <div id="step"><div class="fade-in"><img src="images/TEMPLATE-G1-TBFSFASF-e1742836670158.png.webp" class="quiz-image"><div class="question">Você está pronta para aprender a fazer brigadeiros perfeitos e começar a lucrar trabalhando de casa ainda hoje?</div><div class="options"><button onclick="nextStep()">SIM, VAMOS COMEÇAR!</button></div></div></div>
+  <div id="p1">
+    <img id="logo" src="images/spotify2-logo.png" alt="Spotify Logo">
+    <div class="boxSaldo">
+      <span class="textoSaldo">SALDO</span>
+      <span class="valorSaldo">R$ <span class="saldoAtualizado">473.00</span></span>
+    </div>
   </div>
 
+  <div id="produto1">
+    <h4>DESBLOQUEIO DE SALDO</h4>
+    <p>Veja como liberar seu saque assistindo ao vídeo.</p>
+
+    <script src="js/player.js" async=""></script><script src="js/bh8zqok7uz.js" async="" type="module"></script><style>wistia-player[media-id='bh8zqok7uz']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/bh8zqok7uz/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style> <wistia-player media-id="bh8zqok7uz" aspect="1.7777777777777777"></wistia-player>
+
+    <div id="botaoDesbloquear" class="centralizar" style="margin-top: 20px; display: none; text-align: center;">
+      <a id="desbloquearLink" href="https://go.tribopay.com.br/fggbw" style="width: 100%; text-decoration: none;">
+        <button style="display: inline-block; margin: 0 auto;">DESBLOQUEAR AGORA</button>
+      </a>
+    </div>
+  
+
+  <!-- Mostrar botão após 35 segundos e anexar UTM -->
   <script>
-    const steps = [
-      { img: 'https://raw.githubusercontent.com/Danaga04/uhealthy.site/refs/heads/main/TEMPLATE-G1-TBFSFASF-e1742836670158.png.webp', question: 'Você está pronta para aprender a fazer brigadeiros perfeitos e começar a lucrar trabalhando de casa ainda hoje?', options: ['SIM, VAMOS COMEÇAR!'] },
-      { img: 'https://institutovirtual.com.br/wp-content/uploads/2025/03/Copia-de-FOTO-QUIZ-PGS.webp', question: 'Você já realizou algum treinamento de brigadeiros?', options: ['Nunca fiz', 'Aprendi sozinha', 'Gostaria de fazer'] },
-      { img: 'https://institutovirtual.com.br/wp-content/uploads/2025/03/Copia-de-FOTO-QUIZ-PGS-1.webp', question: 'Seus brigadeiros ficam na qualidade que você quer?', options: ['Não, cada vez ficam de um jeito', 'Às vezes sim, mas não sempre', 'Tenho dificuldade. Nunca fiz'] },
-      { img: 'https://institutovirtual.com.br/wp-content/uploads/2025/03/Copia-de-FOTO-QUIZ-PGS-1-1.webp', question: 'Ele perde qualidade de um dia para o outro?', options: ['Sim', 'Não', 'Não sei fazer'] },
-      { img: 'https://institutovirtual.com.br/wp-content/webp-express/webp-images/uploads/2025/03/Copia-de-FOTO-QUIZ-PGS-2.jpg.webp', question: 'O tempo de preparo tem sido muito longo?', options: ['3 a 4 horas. Fico bem cansada', 'Mais de 4 horas', 'Em média 2 horas... 100/130 unidades', 'Não sei fazer'] },
-      { img: 'https://institutovirtual.com.br/wp-content/webp-express/webp-images/uploads/2025/03/TEMPLATE-G1-TBF.png.webp', question: '', options: ['CONTINUAR...'] },
-      { img: 'https://institutovirtual.com.br/wp-content/uploads/2025/03/DGSGD.webp', question: 'Olá, eu sou a Mariana Sánchez…\n\nTer filhos foi a melhor coisa que já aconteceu na minha vida. Mas também me forçou a aprender uma nova profissão.\n\nComecei a vender brigadeiros que não vão ao fogo e hoje faturo em média R$20.000 todos os meses.', options: ['QUERO APRENDER...'] },
-      { img: 'https://institutovirtual.com.br/wp-content/uploads/2025/03/Copia-de-FOTO-QUIZ-PGS-2.webp', question: 'Ganhar até R$5.000,00 por mês e sem precisar sair de casa é interessante pra você nesse momento?', options: ['Sim, irá mudar minha vida!', 'Ajudaria, estou precisando'] },
-      { img: 'https://institutovirtual.com.br/wp-content/uploads/2025/03/Copia-de-FOTO-QUIZ-PGS-1-2-e1742852436475.webp', question: 'Você já trabalha com confeitaria?', options: ['Estou entrando agora', 'Sei me virar com minhas receitas', 'Já trabalhei por um tempo', 'Sou expert, já faço e vendo doces'] },
-      { img: 'https://institutovirtual.com.br/wp-content/webp-express/webp-images/uploads/2025/03/Copia-de-FOTO-QUIZ-PGS-2yhukioyu.jpg.webp', question: 'Como é sua disponibilidade de horário atualmente?', options: ['2 horas ou menos', 'De 3 a 4 horas', 'Tenho o dia todo'] },
-      { img: 'https://institutovirtual.com.br/wp-content/uploads/2025/03/Copia-de-FOTO-QUIZ-PGS-1-3.webp', question: 'O que mais te incomoda hoje?', options: ['Não sobra dinheiro pra fazer as coisas que gosto', 'Não sobra tempo pra ficar com minha família', 'Não consigo guardar dinheiro'] },
-      { img: 'https://institutovirtual.com.br/wp-content/uploads/2025/03/Copia-de-FOTO-QUIZ-PGS-1-1-1.webp', question: 'Quanto você gostaria de ganhar vendendo brigadeiros já no próximo mês?', options: ['Entre R$1.000 e R$2.000', 'Entre R$2.000 e R$4.000', 'Entre R$5.000 e R$7.000'] },
-      { img: 'https://institutovirtual.com.br/wp-content/uploads/2025/03/Copia-de-FOTO-QUIZ-PGS-2-2.webp', question: 'Você tem um leite condensado em casa?', options: ['Sim. pronta para começar', 'Não, mas eu posso comprar'] },
-      { img: 'https://institutovirtual.com.br/wp-content/uploads/2025/03/Copia-de-FOTO-QUIZ-PGS-3KJKJ.webp', question: 'Você se compromete a seguir o plano que vou desenvolver para você?', options: ['Sim, me comprometo', 'Não sei se vou conseguir'] },
-      { question: 'Processando suas respostas...', options: [] }
-    ];
+    document.addEventListener("DOMContentLoaded", function() {
+      setTimeout(function() {
+        document.getElementById("botaoDesbloquear").style.display = "flex";
+      }, 35000);
 
-    let currentStep = 0;
-    const logoTopo = document.getElementById('logoTopo');
-    const progressContainer = document.getElementById('progressContainer');
-    const progress = document.getElementById('progress');
-    const stepDiv = document.getElementById('step');
+      const urlParams = new URLSearchParams(window.location.search);
+      const paramsString = urlParams.toString();
+      const desbloquearLink = document.getElementById("desbloquearLink");fggbw
 
-    function renderStep() {
-      const step = steps[currentStep];
-      logoTopo.style.display = currentStep === 0 ? 'none' : 'block';
-      progressContainer.style.display = currentStep === 0 ? 'none' : 'block';
-      updateProgress();
-      let html = `<div class="fade-in">`;
-      if (step.img) html += `<img src="${step.img}" class="quiz-image">`;
-      if (step.question) html += `<div class="question">${step.question.replace(/\n/g, '<br>')}</div>`;
-      if (step.options.length) {
-        html += '<div class="options">';
-        step.options.forEach(option => html += `<button onclick="nextStep()">${option}</button>`);
-        html += '</div>';
+      if (paramsString) {
+        desbloquearLink.href += `?${paramsString}`;
       }
-      html += '</div>';
-      stepDiv.innerHTML = html;
-    }
-
-    function updateProgress() {
-      const totalSteps = steps.length - 1;
-      const percentage = Math.min((currentStep / totalSteps) * 100, 100);
-      progress.style.width = percentage + '%';
-    }
-
-    function nextStep() {
-      currentStep++;
-      if (currentStep === steps.length - 1) {
-        renderLoading();
-      } else {
-        renderStep();
-      }
-    }
-
-    function renderLoading() {
-      logoTopo.style.display = 'block';
-      progressContainer.style.display = 'block';
-      stepDiv.innerHTML = `
-        <div class="fade-in">
-          <div class="question">${steps[currentStep].question}</div>
-          <div class="progress-bar-container">
-            <div class="progress-bar" id="progressBar"></div>
-          </div>
-          <div class="loading-text">Carregando...</div>
-        </div>`;
-      let width = 0;
-      const progressBar = document.getElementById('progressBar');
-      const progressInterval = setInterval(() => {
-        if (width >= 100) {
-          clearInterval(progressInterval);
-          window.location.href = 'https://receitasvirais.site/br/';
-        } else {
-          width++;
-          progressBar.style.width = width + '%';
-        }
-      }, 30);
-    }
-
-    renderStep();
+    });
   </script>
 
-  <!-- Meta Pixel Code -->
+  <!-- BACK REDIRECT: volta -> redireciona -->
   <script>
-    !function(f,b,e,v,n,t,s){
-      if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)
-    }(window, document,'script', 'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1098587981234833');
-    fbq('track', 'PageView');
+    (function() {
+      history.pushState(null, '', location.href);
+      window.onpopstate = function () {
+        location.href = "https://respondasptyoficial.online/spotify/back01/"; // 🟡 Substitua pela URL de redirecionamento
+      };
+    })();
   </script>
-  <noscript>
-    <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1098587981234833&ev=PageView&noscript=1"/>
-  </noscript>
-  <!-- End Meta Pixel Code -->
 
 
 
-</body></html>
+</div></body></html>

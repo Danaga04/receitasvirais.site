@@ -140,16 +140,57 @@ POR SOLO
 				</div>
 			
 
-<!-- HOTMART - Sales Funnel Widget -->
-<!--- sales funnel container --->
-<div id="hotmart-sales-funnel"></div>
+<style>
+  .btn-accept {
+    display: inline-block;
+    background: linear-gradient(90deg, #16a34a, #059669);
+    color: white;
+    padding: 14px 22px;
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    border-radius: 12px;
+    position: relative;
+    box-shadow: 0 8px 30px rgba(22, 163, 74, 0.4);
+    animation: pulse 1.8s ease-in-out infinite;
+  }
 
-<!--- script load and setup --->
-<script src="https://checkout.hotmart.com/lib/hotmart-checkout-elements.js"></script>
-<script>
-checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel')
-</script>
-<!-- HOTMART - Sales Funnel Widget -->
+  @keyframes pulse {
+    0% { transform: scale(0.98); box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.7); }
+    50% { transform: scale(1.05); box-shadow: 0 0 0 12px rgba(22, 163, 74, 0); }
+    100% { transform: scale(0.98); box-shadow: 0 0 0 0 rgba(22, 163, 74, 0); }
+  }
+
+  .decline {
+    display: inline-block;
+    margin-top: 14px;
+    color: #888;
+    font-weight: 600;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  .decline:hover {
+    color: #555;
+  }
+</style>
+
+<!-- Botão de aceitar -->
+<a class="btn-accept"
+   href="https://go.perfectpay.com.br/PPU38CPTUR7?upsell=true"
+   target="_blank" rel="noopener noreferrer">
+  DESBLOQUEAR LOCALIZACIÓN AHORA
+</a>
+
+<br>
+
+<!-- Link de recusar -->
+<a class="decline"
+   href="https://vcbemcomseucorpo.site/home-acesso-liberado-whatspy/"
+   target="_blank" rel="noopener noreferrer">
+  RECHAZAR EL UPSELL
+</a>
+
 
 				<!-- AVISO DE REINTENTO -->
 <p style="font-size: 14px; color: #555; margin-top: 10px;">

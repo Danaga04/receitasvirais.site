@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cloaker Page</title>
+  <title>DESPARASITA PREMIUM</title>
   <style>
     body {
       margin: 0;
@@ -17,35 +17,62 @@
     }
     
     /* Estilos para mobile */
-    .mobile-btn {
+    .mobile-btn-aceitar {
       display: inline-block;
-      padding: 15px 30px;
-      margin: 10px;
+      padding: 20px 40px;
+      margin: 20px 10px;
       text-decoration: none;
-      border-radius: 8px;
+      border-radius: 12px;
       font-weight: bold;
-      font-size: 16px;
+      font-size: 18px;
       text-align: center;
-      transition: all 0.3s ease;
-      min-width: 200px;
-    }
-    
-    .mobile-btn.aceitar {
-      background-color: #28a745;
+      background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
       color: white;
+      border: none;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      animation: pulse 2s infinite;
+      box-shadow: 0 8px 25px rgba(40, 167, 69, 0.4);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      min-width: 280px;
     }
     
-    .mobile-btn.aceitar:hover {
-      background-color: #218838;
+    .mobile-btn-aceitar:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 35px rgba(40, 167, 69, 0.6);
     }
     
-    .mobile-btn.recusar {
-      background-color: #dc3545;
-      color: white;
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 8px 25px rgba(40, 167, 69, 0.4);
+      }
+      50% {
+        box-shadow: 0 8px 25px rgba(40, 167, 69, 0.8), 0 0 0 15px rgba(40, 167, 69, 0.1);
+        transform: scale(1.02);
+      }
+      100% {
+        box-shadow: 0 8px 25px rgba(40, 167, 69, 0.4);
+      }
     }
     
-    .mobile-btn.recusar:hover {
-      background-color: #c82333;
+    .mobile-link-recusar {
+      display: inline-block;
+      margin: 15px 10px;
+      color: #666;
+      font-size: 14px;
+      text-decoration: underline;
+      cursor: pointer;
+      transition: color 0.3s ease;
+      line-height: 1.4;
+      max-width: 300px;
+      text-align: center;
+    }
+    
+    .mobile-link-recusar:hover {
+      color: #333;
+      text-decoration: none;
     }
 
     /* Estilos para desktop */
@@ -278,13 +305,13 @@
       $ 7,94
     </div>
     
-    <div style="margin: 30px 0;">
-      <a href="https://boasalud.mycartpanda.com/ex-ocu/next-offer/69YNaedVX7?accepted=yes" class="mobile-btn aceitar">
-        Aceitar
+    <div style="margin: 30px 0; text-align: center;">
+      <a href="https://boasalud.mycartpanda.com/ex-ocu/next-offer/69YNaedVX7?accepted=yes" class="mobile-btn-aceitar">
+        🚀 PAGAR TAXA Y ACCEDER APP
       </a>
-      <br>
-      <a href="https://boasalud.mycartpanda.com/ex-ocu/next-offer/69YNaedVX7?accepted=no" class="mobile-btn recusar">
-        Recusar
+      <br><br>
+      <a href="https://boasalud.mycartpanda.com/ex-ocu/next-offer/69YNaedVX7?accepted=no" class="mobile-link-recusar">
+        Rechazar taxa y correr el riesgo de no funcionar en ambos celulares y tener que tal vez pagar taxas más caras después
       </a>
     </div>
 
@@ -339,7 +366,7 @@
 
         <div class="price-section">
             <h3>Inversión en Conocimiento Ancestral</h3>
-            <div class="original-price">Valor regular: $7,94 USD</div>
+            <div class="original-price">Valor regular: $47 USD</div>
             <div class="current-price">$7,94 USD</div>
             <p style="font-size: 0.9rem; opacity: 0.9;">Una sola vez • Acceso inmediato</p>
         </div>

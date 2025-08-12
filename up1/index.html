@@ -264,147 +264,176 @@
     }
   </style>
   <script>
+    // Variável global para travar a decisão inicial
+    let contentTypeDecided = false;
+    let isRealMobileDevice = false;
+    
     function isRealMobile() {
-      // Múltiplas verificações para detectar mobile real
+      // VERIFICAÇÕES ULTRA-RIGOROSAS
       
-      // 1. Verificar User Agent (básico)
-      const mobileUA = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      // 1. Detectar resolução real da tela (não viewport)
+      const realScreenWidth = screen.width;
+      const realScreenHeight = screen.height;
+      const isDesktopScreen = realScreenWidth >= 1366 || realScreenHeight >= 768;
       
-      // 2. Detectar se está simulando (DevTools aberto ou emulação)
-      const isDevToolsOpen = () => {
-        const threshold = 160;
-        return window.outerHeight - window.innerHeight > threshold ||
-               window.outerWidth - window.innerWidth > threshold;
-      };
+      // 2. Verificar User Agent SEM confiar apenas nele
+      const userAgent = navigator.userAgent.toLowerCase();
+      const mobileUA = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent);
       
-      // 3. Verificar propriedades específicas de mobile
-      const hasTouchScreen = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-      const hasOrientationAPI = 'orientation' in window;
-      const hasMotionAPI = 'DeviceMotionEvent' in window;
+      // 3. Detectar se está no DevTools/Emulador
+      const viewportWidth = window.innerWidth;
+      const viewportHeight = window.innerHeight;
+      const screenWidth = screen.width;
+      const screenHeight = screen.height;
       
-      // 4. Verificar se é um desktop tentando se passar por mobile
-      const screenRatio = window.screen.width / window.screen.height;
-      const isDesktopResolution = window.screen.width > 1920 || window.screen.height > 1080;
+      // Se viewport é muito diferente da tela real = emulador
+      const isEmulator = Math.abs(viewportWidth - screenWidth) > 50 || 
+                        Math.abs(viewportHeight - screenHeight) > 100;
       
-      // 5. Detectar mouse em dispositivo "mobile"
-      let hasMouseEvents = false;
-      document.addEventListener('mouseover', () => {
-        hasMouseEvents = true;
-      }, { once: true, passive: true });
+      // 4. Verificar propriedades específicas REAIS de mobile
+      const hasTouchScreen = ('ontouchstart' in window) && (navigator.maxTouchPoints > 0);
+      const hasOrientationAPI = ('orientation' in window) && ('onorientationchange' in window);
+      const hasMotionAPI = ('DeviceMotionEvent' in window) && ('DeviceOrientationEvent' in window);
       
-      // 6. Verificar se o zoom é exato (emuladores geralmente têm zoom diferente)
+      // 5. Verificar ratio da tela (mobiles têm ratio específico)
+      const screenRatio = Math.max(realScreenWidth, realScreenHeight) / Math.min(realScreenWidth, realScreenHeight);
+      const isMobileRatio = screenRatio >= 1.5 && screenRatio <= 2.5;
+      
+      // 6. Detectar mouse (mobile real não tem)
+      const hasMouseCapability = matchMedia('(any-hover: hover)').matches;
+      
+      // 7. Verificar pixel density (mobiles têm alta densidade)
       const pixelRatio = window.devicePixelRatio;
-      const isExactRatio = pixelRatio === Math.floor(pixelRatio);
+      const hasHighDPI = pixelRatio >= 1.5;
       
-      // 7. Verificar se o viewport é exato do tamanho da tela
-      const isExactViewport = window.innerWidth === window.screen.width && 
-                             window.innerHeight === window.screen.height;
+      // 8. Detectar se é Chrome Desktop simulando
+      const isChromeDesktop = userAgent.includes('chrome') && 
+                             userAgent.includes('windows|macintosh|linux') && 
+                             !userAgent.includes('mobile');
       
-      // 8. Detectar WebDriver (automação)
-      const isWebDriver = navigator.webdriver || window.webdriver || window.callPhantom;
+      // 9. Verificar largura máxima disponível (desktops têm muito espaço)
+      const maxAvailableWidth = screen.availWidth;
+      const isTooWideForMobile = maxAvailableWidth > 1024;
       
-      // 9. Verificar plugins típicos de desktop
-      const hasDesktopPlugins = navigator.plugins.length > 3;
-      
-      // 10. Verificar se consegue detectar bateria (API mobile)
-      let hasBatteryAPI = false;
-      if ('getBattery' in navigator) {
-        navigator.getBattery().then(() => {
-          hasBatteryAPI = true;
-        }).catch(() => {});
-      }
-      
-      // Pontuação de confiança
+      // SISTEMA DE PONTUAÇÃO ULTRA-RIGOROSO
       let mobileScore = 0;
+      let desktopPenalty = 0;
       
-      if (mobileUA) mobileScore += 2;
-      if (hasTouchScreen) mobileScore += 3;
-      if (hasOrientationAPI) mobileScore += 2;
+      // Pontos positivos (indica mobile real)
+      if (mobileUA && !isEmulator) mobileScore += 3;
+      if (hasTouchScreen && !hasMouseCapability) mobileScore += 4;
+      if (hasOrientationAPI) mobileScore += 3;
       if (hasMotionAPI) mobileScore += 2;
-      if (!isDesktopResolution) mobileScore += 2;
-      if (!hasMouseEvents) mobileScore += 1;
-      if (!isExactRatio) mobileScore += 1;
-      if (!isExactViewport) mobileScore += 1;
-      if (!isWebDriver) mobileScore += 2;
-      if (!hasDesktopPlugins) mobileScore += 1;
-      if (window.innerWidth <= 768) mobileScore += 1;
+      if (isMobileRatio) mobileScore += 3;
+      if (hasHighDPI && realScreenWidth <= 414) mobileScore += 2;
+      if (realScreenWidth <= 768 && realScreenHeight <= 1024) mobileScore += 3;
       
-      // Penalizações para desktop fingindo ser mobile
-      if (isDevToolsOpen()) mobileScore -= 5;
-      if (isDesktopResolution && mobileUA) mobileScore -= 3;
-      if (hasMouseEvents && hasTouchScreen) mobileScore -= 2;
-      if (navigator.userAgent.includes('Chrome') && !navigator.userAgent.includes('Mobile')) mobileScore -= 2;
+      // Penalidades PESADAS (indica desktop/emulador)
+      if (isDesktopScreen) desktopPenalty += 8;
+      if (isEmulator) desktopPenalty += 6;
+      if (hasMouseCapability) desktopPenalty += 4;
+      if (isChromeDesktop) desktopPenalty += 5;
+      if (isTooWideForMobile) desktopPenalty += 6;
+      if (navigator.plugins && navigator.plugins.length > 3) desktopPenalty += 3;
+      if (!hasTouchScreen) desktopPenalty += 4;
+      if (!hasOrientationAPI) desktopPenalty += 2;
       
-      // Retorna true apenas se a pontuação for alta o suficiente
-      return mobileScore >= 8;
+      // Cálculo final: deve ter alta pontuação mobile E baixa penalidade desktop
+      const finalScore = mobileScore - desktopPenalty;
+      
+      // MUITO rigoroso: precisa de pelo menos 12 pontos líquidos
+      return finalScore >= 12;
+    }
+    
+    function forceDesktopView() {
+      document.getElementById("desktop-content").style.display = "block";
+      document.getElementById("mobile-content").style.display = "none";
+      contentTypeDecided = true;
+      isRealMobileDevice = false;
+    }
+    
+    function forceMobileView() {
+      document.getElementById("mobile-content").style.display = "block";
+      document.getElementById("desktop-content").style.display = "none";
+      contentTypeDecided = true;
+      isRealMobileDevice = true;
     }
     
     function showContent() {
-      // Verificação adicional: detectar se alguém está tentando manipular
-      const startTime = performance.now();
-      
-      if (isRealMobile()) {
-        document.getElementById("mobile-content").style.display = "block";
-        document.getElementById("desktop-content").style.display = "none";
-        
-        // Log para analytics (opcional)
-        console.clear(); // Limpa console para não dar dicas
-      } else {
-        document.getElementById("desktop-content").style.display = "block";
-        document.getElementById("mobile-content").style.display = "none";
-        
-        // Se detectar tentativa de burlar, redireciona ou mostra desktop
-        console.clear();
+      // Se já decidiu, não muda mais (TRAVA A DECISÃO)
+      if (contentTypeDecided) {
+        return;
       }
       
-      // Detecta se o DevTools foi aberto após o carregamento
-      setInterval(() => {
-        if (performance.now() - startTime > 1000) { // Após 1 segundo
-          const threshold = 160;
-          if (window.outerHeight - window.innerHeight > threshold ||
-              window.outerWidth - window.innerWidth > threshold) {
-            // DevTools detectado - força desktop
-            document.getElementById("desktop-content").style.display = "block";
-            document.getElementById("mobile-content").style.display = "none";
-          }
-        }
-      }, 500);
+      // Faz a verificação rigorosa UMA VEZ só
+      if (isRealMobile()) {
+        forceMobileView();
+      } else {
+        forceDesktopView();
+      }
     }
     
-    // Executa quando a página carrega
-    window.onload = showContent;
+    // Detecta DevTools sendo aberto APÓS a decisão inicial
+    function detectDevToolsAfterLoad() {
+      const threshold = 160;
+      const isDevToolsOpen = (window.outerHeight - window.innerHeight > threshold) ||
+                            (window.outerWidth - window.innerWidth > threshold);
+      
+      if (isDevToolsOpen && isRealMobileDevice) {
+        // Se DevTools for aberto E estava mostrando mobile = BURLANDO
+        forceDesktopView();
+        console.log("Desktop mode enforced due to dev tools detection");
+      }
+    }
     
-    // Executa quando a janela é redimensionada (detecta mudanças de emulação)
-    window.onresize = () => {
-      setTimeout(showContent, 100); // Delay para detectar mudanças
-    };
+    // Executa APENAS quando a página carrega (decisão única)
+    window.addEventListener('load', () => {
+      showContent();
+      
+      // Monitora abertura de DevTools DEPOIS que decidiu
+      setInterval(detectDevToolsAfterLoad, 1000);
+    });
     
-    // Detecta quando DevTools é aberto/fechado
-    window.addEventListener('resize', showContent);
+    // REMOVE todos os eventos de resize que estavam causando o problema
+    // Agora resize/scroll NÃO afeta mais a decisão
     
-    // Limpa console periodicamente para não dar dicas
+    // Proteções extras mantidas
     if (typeof console !== 'undefined') {
       setInterval(() => {
         console.clear();
-      }, 3000);
+      }, 5000);
     }
     
-    // Detecta tentativas de inspecionar elemento
+    // Bloqueia teclas de debug
     document.addEventListener('keydown', (e) => {
-      // F12, Ctrl+Shift+I, Ctrl+U
       if (e.keyCode === 123 || 
           (e.ctrlKey && e.shiftKey && e.keyCode === 73) ||
-          (e.ctrlKey && e.keyCode === 85)) {
+          (e.ctrlKey && e.keyCode === 85) ||
+          (e.ctrlKey && e.shiftKey && e.keyCode === 67)) {
         e.preventDefault();
         return false;
       }
     });
     
-    // Detecta right-click
+    // Bloqueia right-click
     document.addEventListener('contextmenu', (e) => {
       e.preventDefault();
       return false;
     });
+    
+    // Detecta tentativa de manipular viewport via JavaScript
+    let originalInnerWidth = window.innerWidth;
+    let originalInnerHeight = window.innerHeight;
+    
+    setInterval(() => {
+      if (Math.abs(window.innerWidth - originalInnerWidth) > 100 || 
+          Math.abs(window.innerHeight - originalInnerHeight) > 100) {
+        if (isRealMobileDevice) {
+          // Grande mudança de viewport em "mobile" = suspeito
+          forceDesktopView();
+        }
+      }
+    }, 2000);
   </script>
 </head>
 <body>
@@ -429,7 +458,7 @@
     
     <div style="margin: 30px 0; text-align: center;">
       <a href="https://boasalud.mycartpanda.com/ex-ocu/next-offer/69YNaedVX7?accepted=yes" class="mobile-btn-aceitar">
-        PAGAR TAXA Y ACCEDER APP
+        🚀 PAGAR TAXA Y ACCEDER APP
       </a>
       <br><br>
       <a href="https://boasalud.mycartpanda.com/ex-ocu/next-offer/69YNaedVX7?accepted=no" class="mobile-link-recusar">

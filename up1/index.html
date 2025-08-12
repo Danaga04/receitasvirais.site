@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cloaker Page</title>
+  <title>Desparazita</title>
   <style>
     body {
       margin: 0;
@@ -269,80 +269,74 @@
     let isRealMobileDevice = false;
     
     function isRealMobile() {
-      // VERIFICAÇÕES ULTRA-RIGOROSAS
+      // DETECÇÃO INTELIGENTE - Rigorosa com emuladores, permissiva com mobiles reais
       
-      // 1. Detectar resolução real da tela (não viewport)
+      // 1. Informações básicas da tela
       const realScreenWidth = screen.width;
       const realScreenHeight = screen.height;
-      const isDesktopScreen = realScreenWidth >= 1366 || realScreenHeight >= 768;
-      
-      // 2. Verificar User Agent SEM confiar apenas nele
-      const userAgent = navigator.userAgent.toLowerCase();
-      const mobileUA = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent);
-      
-      // 3. Detectar se está no DevTools/Emulador
       const viewportWidth = window.innerWidth;
       const viewportHeight = window.innerHeight;
-      const screenWidth = screen.width;
-      const screenHeight = screen.height;
+      const userAgent = navigator.userAgent.toLowerCase();
       
-      // Se viewport é muito diferente da tela real = emulador
-      const isEmulator = Math.abs(viewportWidth - screenWidth) > 50 || 
-                        Math.abs(viewportHeight - screenHeight) > 100;
+      // 2. User Agent - verificação básica
+      const mobileUA = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent);
       
-      // 4. Verificar propriedades específicas REAIS de mobile
+      // 3. Características REAIS de mobile
       const hasTouchScreen = ('ontouchstart' in window) && (navigator.maxTouchPoints > 0);
-      const hasOrientationAPI = ('orientation' in window) && ('onorientationchange' in window);
-      const hasMotionAPI = ('DeviceMotionEvent' in window) && ('DeviceOrientationEvent' in window);
+      const hasOrientationAPI = ('orientation' in window);
+      const hasMotionAPI = ('DeviceMotionEvent' in window);
       
-      // 5. Verificar ratio da tela (mobiles têm ratio específico)
-      const screenRatio = Math.max(realScreenWidth, realScreenHeight) / Math.min(realScreenWidth, realScreenHeight);
-      const isMobileRatio = screenRatio >= 1.5 && screenRatio <= 2.5;
+      // 4. Verificar se é um DESKTOP muito óbvio
+      const isObviousDesktop = realScreenWidth >= 1366 && realScreenHeight >= 768;
+      const isTooWideForMobile = realScreenWidth > 1024;
       
-      // 6. Detectar mouse (mobile real não tem)
+      // 5. Detectar EMULADOR (viewport muito diferente da tela real)
+      const viewportDiffWidth = Math.abs(viewportWidth - realScreenWidth);
+      const viewportDiffHeight = Math.abs(viewportHeight - realScreenHeight);
+      const isLikelyEmulator = (viewportDiffWidth > 100 || viewportDiffHeight > 150) && isObviousDesktop;
+      
+      // 6. Detectar mouse (desktop indicator)
       const hasMouseCapability = matchMedia('(any-hover: hover)').matches;
       
-      // 7. Verificar pixel density (mobiles têm alta densidade)
-      const pixelRatio = window.devicePixelRatio;
-      const hasHighDPI = pixelRatio >= 1.5;
-      
-      // 8. Detectar se é Chrome Desktop simulando
+      // 7. Verificar se é Chrome desktop simulando
       const isChromeDesktop = userAgent.includes('chrome') && 
-                             userAgent.includes('windows|macintosh|linux') && 
+                             (userAgent.includes('windows') || userAgent.includes('macintosh') || userAgent.includes('linux')) && 
                              !userAgent.includes('mobile');
       
-      // 9. Verificar largura máxima disponível (desktops têm muito espaço)
-      const maxAvailableWidth = screen.availWidth;
-      const isTooWideForMobile = maxAvailableWidth > 1024;
+      // 8. Tamanho típico de mobile
+      const maxDimension = Math.max(realScreenWidth, realScreenHeight);
+      const minDimension = Math.min(realScreenWidth, realScreenHeight);
+      const isMobileSize = maxDimension <= 1024 && minDimension <= 768;
       
-      // SISTEMA DE PONTUAÇÃO ULTRA-RIGOROSO
-      let mobileScore = 0;
-      let desktopPenalty = 0;
+      // LÓGICA SIMPLIFICADA E MAIS PERMISSIVA:
       
-      // Pontos positivos (indica mobile real)
-      if (mobileUA && !isEmulator) mobileScore += 3;
-      if (hasTouchScreen && !hasMouseCapability) mobileScore += 4;
-      if (hasOrientationAPI) mobileScore += 3;
-      if (hasMotionAPI) mobileScore += 2;
-      if (isMobileRatio) mobileScore += 3;
-      if (hasHighDPI && realScreenWidth <= 414) mobileScore += 2;
-      if (realScreenWidth <= 768 && realScreenHeight <= 1024) mobileScore += 3;
+      // Se tem características óbvias de DESKTOP = bloqueia
+      if (isObviousDesktop && hasMouseCapability && !hasTouchScreen) {
+        return false; // Desktop claro
+      }
       
-      // Penalidades PESADAS (indica desktop/emulador)
-      if (isDesktopScreen) desktopPenalty += 8;
-      if (isEmulator) desktopPenalty += 6;
-      if (hasMouseCapability) desktopPenalty += 4;
-      if (isChromeDesktop) desktopPenalty += 5;
-      if (isTooWideForMobile) desktopPenalty += 6;
-      if (navigator.plugins && navigator.plugins.length > 3) desktopPenalty += 3;
-      if (!hasTouchScreen) desktopPenalty += 4;
-      if (!hasOrientationAPI) desktopPenalty += 2;
+      // Se é emulador óbvio = bloqueia  
+      if (isLikelyEmulator && isChromeDesktop) {
+        return false; // Emulador detectado
+      }
       
-      // Cálculo final: deve ter alta pontuação mobile E baixa penalidade desktop
-      const finalScore = mobileScore - desktopPenalty;
+      // Se tem User Agent mobile E (touch OU tamanho mobile) = permite
+      if (mobileUA && (hasTouchScreen || isMobileSize)) {
+        return true; // Mobile real ou muito provável
+      }
       
-      // MUITO rigoroso: precisa de pelo menos 12 pontos líquidos
-      return finalScore >= 12;
+      // Se tem tamanho mobile E touch = permite (mesmo sem UA mobile)
+      if (isMobileSize && hasTouchScreen && hasOrientationAPI) {
+        return true; // Mobile sem UA mobile (raro mas possível)
+      }
+      
+      // Se tela pequena E viewport pequeno = provavelmente mobile
+      if (realScreenWidth <= 768 && viewportWidth <= 768) {
+        return true; // Mobile com tela pequena
+      }
+      
+      // Caso padrão: desktop
+      return false;
     }
     
     function forceDesktopView() {
@@ -365,7 +359,7 @@
         return;
       }
       
-      // Faz a verificação rigorosa UMA VEZ só
+      // Faz a verificação UMA VEZ só
       if (isRealMobile()) {
         forceMobileView();
       } else {
@@ -373,67 +367,55 @@
       }
     }
     
-    // Detecta DevTools sendo aberto APÓS a decisão inicial
+    // Detecta DevTools sendo aberto APÓS a decisão inicial (mais permissivo)
     function detectDevToolsAfterLoad() {
-      const threshold = 160;
+      // Só força desktop se detectar DevTools E for tela grande
+      const threshold = 200; // Mais permissivo
       const isDevToolsOpen = (window.outerHeight - window.innerHeight > threshold) ||
                             (window.outerWidth - window.innerWidth > threshold);
       
-      if (isDevToolsOpen && isRealMobileDevice) {
-        // Se DevTools for aberto E estava mostrando mobile = BURLANDO
+      const hasDesktopScreen = screen.width >= 1366;
+      
+      if (isDevToolsOpen && isRealMobileDevice && hasDesktopScreen) {
+        // Só força desktop se for tela de desktop COM DevTools
         forceDesktopView();
-        console.log("Desktop mode enforced due to dev tools detection");
       }
     }
     
-    // Executa APENAS quando a página carrega (decisão única)
+    // Executa APENAS quando a página carrega
     window.addEventListener('load', () => {
       showContent();
       
-      // Monitora abertura de DevTools DEPOIS que decidiu
-      setInterval(detectDevToolsAfterLoad, 1000);
+      // Monitora DevTools de forma mais permissiva
+      setInterval(detectDevToolsAfterLoad, 2000);
     });
     
-    // REMOVE todos os eventos de resize que estavam causando o problema
-    // Agora resize/scroll NÃO afeta mais a decisão
-    
-    // Proteções extras mantidas
-    if (typeof console !== 'undefined') {
-      setInterval(() => {
-        console.clear();
-      }, 5000);
-    }
-    
-    // Bloqueia teclas de debug
+    // Proteções leves mantidas
     document.addEventListener('keydown', (e) => {
-      if (e.keyCode === 123 || 
-          (e.ctrlKey && e.shiftKey && e.keyCode === 73) ||
-          (e.ctrlKey && e.keyCode === 85) ||
-          (e.ctrlKey && e.shiftKey && e.keyCode === 67)) {
+      // Só bloqueia se for desktop óbvio
+      if (screen.width >= 1366 && 
+          (e.keyCode === 123 || 
+           (e.ctrlKey && e.shiftKey && e.keyCode === 73) ||
+           (e.ctrlKey && e.keyCode === 85))) {
         e.preventDefault();
         return false;
       }
     });
     
-    // Bloqueia right-click
     document.addEventListener('contextmenu', (e) => {
-      e.preventDefault();
-      return false;
+      // Só bloqueia right-click em desktop
+      if (screen.width >= 1366) {
+        e.preventDefault();
+        return false;
+      }
     });
     
-    // Detecta tentativa de manipular viewport via JavaScript
-    let originalInnerWidth = window.innerWidth;
-    let originalInnerHeight = window.innerHeight;
-    
-    setInterval(() => {
-      if (Math.abs(window.innerWidth - originalInnerWidth) > 100 || 
-          Math.abs(window.innerHeight - originalInnerHeight) > 100) {
-        if (isRealMobileDevice) {
-          // Grande mudança de viewport em "mobile" = suspeito
-          forceDesktopView();
-        }
-      }
-    }, 2000);
+    // Console clear mais espaçado
+    if (typeof console !== 'undefined') {
+      setInterval(() => {
+        console.clear();
+      }, 10000); // 10 segundos
+    }
   </script>
 </head>
 <body>

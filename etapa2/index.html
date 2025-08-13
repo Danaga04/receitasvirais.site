@@ -254,8 +254,8 @@ document.addEventListener('DOMContentLoaded', function() {
 			<script>
 document.addEventListener('DOMContentLoaded', function() {
   let currentStep = 1;
-  const waitTimesBefore = [0, 1, 1, 1, 1, 1, 1, 1]; // Tempos de espera antes de mostrar cada item
-  const waitTimesAfter = [0, 14, 14, 14, 14, 14, 14, 14]; // Tempos de espera antes de marcar como completo
+  const waitTimesBefore = [0, 0, 0, 0, 0, 0, 0, 0]; // Sem espera adicional
+   const waitTimesAfter = [0, 8, 10, 12, 13, 14, 16, 18]; // Progressão realística: 8+10+12+13+14+16+18 = 91 segundos
   
   function completeItem(item, isLast) {
     const icon = item.querySelector('.status-icon');

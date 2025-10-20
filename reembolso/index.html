@@ -2,227 +2,149 @@
 <html lang="es">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Solicitud de reembolso</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Formulario de reembolso</title>
 <style>
-  :root{
-    --bg:#0f1724;
-    --card:#0b1220;
-    --muted:#94a3b8;
-    --accent:#f59e0b;
-    --accent-2:#10b981;
-    --white:#f8fafc;
-    font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  body {
+    font-family: Arial, sans-serif;
+    background: #fff;
+    margin: 0;
+    padding: 0;
+    color: #111;
   }
-  html,body{height:100%;margin:0;background:linear-gradient(180deg,#071024 0%, #071826 100%);color:var(--white);}
-  .wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:28px;}
-  .card{
-    width:100%;max-width:760px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-    border-radius:14px;padding:22px;box-shadow:0 8px 30px rgba(2,6,23,0.6);backdrop-filter: blur(6px);
-    display:grid;grid-template-columns:1fr 380px;gap:20px;
+  .container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 0 16px;
   }
-  .left{padding:6px 8px;}
-  h1{font-size:20px;margin:0 0 6px 0;}
-  p.lead{margin:0 0 14px 0;color:var(--muted);line-height:1.35;font-size:14px;}
-  label{display:block;font-size:13px;margin-bottom:6px;color:var(--muted);}
-  input[type="text"], input[type="email"], textarea, select{
-    width:100%;padding:10px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);
-    background:transparent;color:var(--white);font-size:14px;outline:none;box-sizing:border-box;
+  a.back-link {
+    display: inline-block;
+    margin: 16px;
+    color: #0073bb;
+    text-decoration: none;
+    font-size: 14px;
   }
-  textarea{min-height:110px;resize:vertical;}
-  .field{margin-bottom:12px;}
-  .small{font-size:12px;color:var(--muted);}
-  .actions{display:flex;gap:8px;align-items:center;margin-top:8px;flex-wrap:wrap;}
-  .btn{
-    display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border-radius:10px;
-    border:none;cursor:pointer;font-weight:600;font-size:14px;
+  a.back-link:hover {
+    text-decoration: underline;
   }
-  .btn-send{background:var(--accent);color:#071023;box-shadow:0 6px 18px rgba(245,158,11,0.12);}
-  .btn-gift{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--white);}
-  .opt{display:flex;align-items:center;gap:8px;font-size:13px;}
-  .note{font-size:13px;color:var(--muted);margin-top:10px;}
-  .right{
-    padding:18px;border-left:1px dashed rgba(255,255,255,0.03);
-    display:flex;flex-direction:column;justify-content:center;gap:12px;
+  h1 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #111;
   }
-  .offer{
-    background:linear-gradient(90deg, rgba(16,185,129,0.08), rgba(245,158,11,0.05));
-    padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);
+  p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 24px;
   }
-  .offer h3{margin:0;font-size:16px;}
-  .offer p{margin:6px 0 0 0;color:var(--muted);font-size:13px;}
-  .success{display:none;padding:12px;border-radius:8px;background:linear-gradient(90deg, rgba(16,185,129,0.06), rgba(255,255,255,0.01));color:var(--accent-2);font-weight:600;}
-  .danger{color:#fecaca;font-size:13px;}
-  @media (max-width:760px){
-    .card{grid-template-columns:1fr; padding:16px;}
-    .right{border-left:none;border-top:1px dashed rgba(255,255,255,0.03);padding-top:14px;}
+  label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #111;
+  }
+  input[type="text"],
+  input[type="email"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #d5d9d9;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    font-size: 14px;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+  }
+  textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+  button {
+    background-color: #ffd814;
+    border: 1px solid #fcd200;
+    border-radius: 4px;
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #111;
+  }
+  button:hover {
+    background-color: #f7ca00;
+  }
+  .note {
+    font-size: 13px;
+    color: #555;
+    margin-top: 16px;
   }
 </style>
 </head>
 <body>
-<div class="wrap">
-  <form id="refundForm" class="card" autocomplete="off" onsubmit="return handleSubmit(event)">
-    <div class="left">
-      <h1>Solicitud de reembolso</h1>
-      <p class="lead">Lamentamos que quieras un reembolso. Antes de continuar, por favor completa este formulario para que podamos procesarlo rápidamente.</p>
 
-      <div class="field">
-        <label for="name">Nombre completo</label>
-        <input id="name" name="name" type="text" required placeholder="Ej. María Pérez" />
-      </div>
+<a href="https://vcbemcomseucorpo.site/home-acesso-cancion-latam/" class="back-link">← Volver a la página principal</a>
 
-      <div class="field">
-        <label for="email">Correo electrónico</label>
-        <input id="email" name="email" type="email" required placeholder="ejemplo@correo.com" />
-      </div>
+<div class="container">
+  <h1>Solicitud de reembolso</h1>
+  <p>Lamentamos que quieras solicitar un reembolso. Por favor, completa los datos a continuación para que podamos procesarlo rápidamente.</p>
 
-      <div class="field">
-        <label for="phone">Teléfono (opcional)</label>
-        <input id="phone" name="phone" type="text" placeholder="+55 11 9xxxx-xxxx" />
-      </div>
+  <form id="refundForm" onsubmit="return handleSubmit(event)">
+    <label for="name">Nombre completo</label>
+    <input type="text" id="name" name="name" placeholder="Ej. María Pérez" required>
 
-      <div class="field">
-        <label for="reason">Motivo del reembolso</label>
-        <select id="reason" name="reason" required>
-          <option value="">Selecciona un motivo</option>
-          <option value="No era lo que esperaba">No era lo que esperaba</option>
-          <option value="Problemas técnicos">Problemas técnicos</option>
-          <option value="Contenido insuficiente">Contenido insuficiente</option>
-          <option value="Accidental / Compra duplicada">Accidental / Compra duplicada</option>
-          <option value="Otro">Otro</option>
-        </select>
-      </div>
+    <label for="email">Correo electrónico</label>
+    <input type="email" id="email" name="email" placeholder="ejemplo@correo.com" required>
 
-      <div class="field">
-        <label for="details">Cuéntanos por qué solicitas el reembolso</label>
-        <textarea id="details" name="details" placeholder="Explícanos brevemente para ayudar a mejorar (máx. 1000 caracteres)"></textarea>
-      </div>
+    <label for="phone">Teléfono (opcional)</label>
+    <input type="text" id="phone" name="phone" placeholder="+55 11 9xxxx-xxxx">
 
-      <div class="field opt">
-        <input id="keepOffer" type="checkbox" />
-        <label for="keepOffer" style="margin:0;cursor:pointer;">Antes de reembolsar, me gustaría recibir un regalo exclusivo y una oferta especial para quedarme (30% de descuento + bonus).</label>
-      </div>
+    <label for="reason">Motivo del reembolso</label>
+    <select id="reason" name="reason" required>
+      <option value="">Selecciona un motivo</option>
+      <option value="No era lo que esperaba">No era lo que esperaba</option>
+      <option value="Problemas técnicos">Problemas técnicos</option>
+      <option value="Contenido insuficiente">Contenido insuficiente</option>
+      <option value="Compra duplicada">Compra duplicada</option>
+      <option value="Otro">Otro</option>
+    </select>
 
-      <div class="actions">
-        <button class="btn btn-send" type="submit">Enviar solicitud de reembolso</button>
-        <button class="btn btn-gift" type="button" onclick="saveAndOffer()">Sí, quiero la oferta y el regalo</button>
-        <div id="status" class="success" role="status">Solicitud preparada. Se abrirá tu correo para enviar al equipo.</div>
-      </div>
+    <label for="details">Describe brevemente el motivo</label>
+    <textarea id="details" name="details" placeholder="Cuéntanos brevemente el motivo de tu solicitud..."></textarea>
 
-      <p class="note">Al enviar, enviaremos un correo a <strong>danagapreto@gmail.com</strong> con tu solicitud. También recibirás instrucciones por correo si necesitamos datos adicionales.</p>
-
-      <p class="danger"><strong>¿Seguro que quieres reembolsar?</strong> Si necesitas ayuda para resolver problemas técnicos o acceder al contenido, escribe en el campo de motivos y haremos todo lo posible para ayudarte antes de procesar el reembolso.</p>
-    </div>
-
-    <aside class="right">
-      <div class="offer">
-        <h3>Oferta especial — Solo por tiempo limitado</h3>
-        <p>Si eliges no reembolsar, te damos <strong>un regalo exclusivo</strong>: guía extra + un cupón del <strong>30% de descuento</strong> en tu próxima compra. Además acceso a soporte prioritario para resolver cualquier dificultad.</p>
-      </div>
-
-      <div style="margin-top:8px;">
-        <strong>¿Qué sucede al enviar?</strong>
-        <p class="small">El formulario prepara un correo con toda la información y abre tu aplicación de correo para enviarlo automáticamente a <code>danagapreto@gmail.com</code>. Si no se abre, verás instrucciones alternativas.</p>
-      </div>
-
-      <div style="margin-top:8px;">
-        <strong>Privacidad</strong>
-        <p class="small">Tus datos se usarán solo para gestionar este reembolso y mejorar el servicio. No compartimos tu información.</p>
-      </div>
-    </aside>
+    <button type="submit">Enviar solicitud de reembolso</button>
   </form>
+
+  <p class="note">Nuestro equipo revisará tu solicitud y se pondrá en contacto contigo lo antes posible.</p>
 </div>
 
 <script>
-function encodeLine(s){ return encodeURIComponent(String(s||'')).replace(/%20/g,' '); }
-
-function handleSubmit(e){
+function handleSubmit(e) {
   e.preventDefault();
-  const form = document.getElementById('refundForm');
   const name = document.getElementById('name').value.trim();
   const email = document.getElementById('email').value.trim();
   const phone = document.getElementById('phone').value.trim();
   const reason = document.getElementById('reason').value;
   const details = document.getElementById('details').value.trim();
-  const keep = document.getElementById('keepOffer').checked;
-
-  if(!name || !email || !reason){
-    alert('Por favor completa los campos requeridos: nombre, correo y motivo.');
-    return false;
-  }
-
-  // Compose message body
-  const lines = [
-    'Solicitud de reembolso',
-    '----------------------',
-    'Nombre: ' + name,
-    'Email: ' + email,
-    'Teléfono: ' + (phone || 'No proporcionado'),
-    'Motivo: ' + reason,
-    '',
-    'Detalle:',
-    details || '(sin detalle)',
-    '',
-    'Acepta oferta / regalo antes de reembolsar: ' + (keep ? 'Sí' : 'No'),
-    '',
-    'Fecha: ' + new Date().toLocaleString('es-ES')
-  ];
 
   const subject = 'Solicitud de reembolso - ' + name;
-  const body = lines.join('\n');
+  const body = 
+    'Nombre: ' + name + '\n' +
+    'Correo: ' + email + '\n' +
+    'Teléfono: ' + (phone || 'No proporcionado') + '\n' +
+    'Motivo: ' + reason + '\n\n' +
+    'Detalles:\n' + (details || '(sin detalles)');
 
-  // mailto - note: mailto may be limited by URL length; for long text we warn the user.
-  const mailto = 'mailto:danagapreto@gmail.com'
-    + '?subject=' + encodeURIComponent(subject)
-    + '&body=' + encodeURIComponent(body);
+  const mailto = 
+    'mailto:danagapreto@gmail.com?subject=' + encodeURIComponent(subject) +
+    '&body=' + encodeURIComponent(body);
 
-  // Try to open mail client
-  const win = window.open(mailto, '_self');
-
-  // Show small UI confirmation
-  const status = document.getElementById('status');
-  status.style.display = 'block';
-  status.textContent = 'Se intentó abrir tu correo. Si no aparece, copia manualmente el mensaje (ver ventana emergente).';
-
-  // Also show fallback modal / popup with the prefilled content for manual copy if mailto fails (we'll create a simple fallback)
-  setTimeout(()=> {
-    // If page still visible and mailto didn't open external client, show fallback modal
-    // We'll show a prompt with the body to copy (simple and reliable)
-    if(document.hidden === false){
-      // Provide fallback: open a new window with prefilled text for copying
-      const fallback = confirm('Si no se abrió tu cliente de correo automáticamente, pulsa Aceptar para copiar el contenido y enviarlo manualmente a danagapreto@gmail.com.');
-      if(fallback){
-        copyToClipboard(body);
-        alert('El texto de la solicitud fue copiado al portapapeles. Abre tu correo y pega el texto en el cuerpo, destinatario: danagapreto@gmail.com, asunto: "'+subject+'"');
-      }
-    }
-  }, 700);
-
+  window.location.href = mailto;
+  alert('Se abrirá tu aplicación de correo para enviar la solicitud.');
   return false;
 }
-
-function saveAndOffer(){
-  // If user clicks "quiero oferta", check the box and show message
-  document.getElementById('keepOffer').checked = true;
-  alert('Perfecto — hemos marcado la opción para recibir la oferta y el regalo. Ahora puedes enviar la solicitud o cerrar si cambiaste de opinión.');
-}
-
-// Utility: copy text to clipboard
-function copyToClipboard(text){
-  if(navigator.clipboard && navigator.clipboard.writeText){
-    navigator.clipboard.writeText(text).catch(()=> fallbackCopy(text));
-  } else {
-    fallbackCopy(text);
-  }
-}
-function fallbackCopy(text){
-  const ta = document.createElement('textarea');
-  ta.value = text;
-  document.body.appendChild(ta);
-  ta.select();
-  try{ document.execCommand('copy'); }catch(e){}
-  ta.remove();
-}
 </script>
+
 </body>
 </html>

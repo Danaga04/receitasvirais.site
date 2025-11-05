@@ -80,27 +80,36 @@
     color: #555;
     margin-top: 16px;
   }
+
+  .lang-select {
+    margin: 10px 16px;
+  }
 </style>
 </head>
 <body>
 
-<a href="https://vcbemcomseucorpo.site/home-acesso-cancion-latam/" class="back-link">← Volver a la página principal</a>
+<select id="langSwitcher" class="lang-select">
+  <option value="es">Español</option>
+  <option value="en">English</option>
+</select>
+
+<a id="backLink" href="https://vcbemcomseucorpo.site/home-acesso-cancion-latam/" class="back-link">← Volver a la página principal</a>
 
 <div class="container">
-  <h1>Solicitud de reembolso</h1>
-  <p>Lamentamos que quieras solicitar un reembolso. Por favor, completa los datos a continuación para que podamos procesarlo rápidamente.</p>
+  <h1 id="title">Solicitud de reembolso</h1>
+  <p id="desc">Lamentamos que quieras solicitar un reembolso. Por favor, completa los datos a continuación para que podamos procesarlo rápidamente.</p>
 
   <form id="refundForm" onsubmit="return handleSubmit(event)">
-    <label for="name">Nombre completo</label>
+    <label id="nameLabel" for="name">Nombre completo</label>
     <input type="text" id="name" name="name" placeholder="Ej. María Pérez" required>
 
-    <label for="email">Correo electrónico</label>
+    <label id="emailLabel" for="email">Correo electrónico</label>
     <input type="email" id="email" name="email" placeholder="ejemplo@correo.com" required>
 
-    <label for="phone">Teléfono (opcional)</label>
+    <label id="phoneLabel" for="phone">Teléfono (opcional)</label>
     <input type="text" id="phone" name="phone" placeholder="+55 11 9xxxx-xxxx">
 
-    <label for="reason">Motivo del reembolso</label>
+    <label id="reasonLabel" for="reason">Motivo del reembolso</label>
     <select id="reason" name="reason" required>
       <option value="">Selecciona un motivo</option>
       <option value="No era lo que esperaba">No era lo que esperaba</option>
@@ -110,16 +119,81 @@
       <option value="Otro">Otro</option>
     </select>
 
-    <label for="details">Describe brevemente el motivo</label>
+    <label id="detailsLabel" for="details">Describe brevemente el motivo</label>
     <textarea id="details" name="details" placeholder="Cuéntanos brevemente el motivo de tu solicitud..."></textarea>
 
-    <button type="submit">Enviar solicitud de reembolso</button>
+    <button id="submitBtn" type="submit">Enviar solicitud de reembolso</button>
   </form>
 
-  <p class="note">Nuestro equipo revisará tu solicitud y se pondrá en contacto contigo lo antes posible.</p>
+  <p id="note" class="note">Nuestro equipo revisará tu solicitud y se pondrá en contacto contigo lo antes posible.</p>
 </div>
 
 <script>
+const text = {
+  es: {
+    back: "← Volver a la página principal",
+    title: "Solicitud de reembolso",
+    desc: "Lamentamos que quieras solicitar un reembolso. Por favor, completa los datos a continuación para que podamos procesarlo rápidamente.",
+    name: "Nombre completo",
+    email: "Correo electrónico",
+    phone: "Teléfono (opcional)",
+    reason: "Motivo del reembolso",
+    reasonDefault: "Selecciona un motivo",
+    details: "Describe brevemente el motivo",
+    submit: "Enviar solicitud de reembolso",
+    note: "Nuestro equipo revisará tu solicitud y se pondrá en contacto contigo lo antes posible.",
+    placeholderName: "Ej. María Pérez",
+    placeholderEmail: "ejemplo@correo.com",
+    placeholderDetails: "Cuéntanos brevemente el motivo de tu solicitud...",
+    backURL: "https://vcbemcomseucorpo.site/home-acesso-cancion-latam/"
+  },
+  en: {
+    back: "← Back to homepage",
+    title: "Refund Request",
+    desc: "We're sorry to hear you want a refund. Please fill out the information below so we can process it quickly.",
+    name: "Full Name",
+    email: "Email",
+    phone: "Phone (optional)",
+    reason: "Refund Reason",
+    reasonDefault: "Select a reason",
+    details: "Briefly describe the reason",
+    submit: "Submit Refund Request",
+    note: "Our team will review your request and contact you as soon as possible.",
+    placeholderName: "e.g. Maria Perez",
+    placeholderEmail: "example@email.com",
+    placeholderDetails: "Tell us briefly the reason for your request...",
+    backURL: "https://vcbemcomseucorpo.site/home-acc-song-in/"
+  }
+};
+
+function switchLanguage(lang) {
+  const t = text[lang];
+  document.getElementById("backLink").textContent = t.back;
+  document.getElementById("backLink").href = t.backURL;
+  document.getElementById("title").textContent = t.title;
+  document.getElementById("desc").textContent = t.desc;
+  document.getElementById("nameLabel").textContent = t.name;
+  document.getElementById("emailLabel").textContent = t.email;
+  document.getElementById("phoneLabel").textContent = t.phone;
+  document.getElementById("reasonLabel").textContent = t.reason;
+  document.getElementById("detailsLabel").textContent = t.details;
+  document.getElementById("submitBtn").textContent = t.submit;
+  document.getElementById("note").textContent = t.note;
+  document.getElementById("name").placeholder = t.placeholderName;
+  document.getElementById("email").placeholder = t.placeholderEmail;
+  document.getElementById("details").placeholder = t.placeholderDetails;
+  document.getElementById("reason").options[0].textContent = t.reasonDefault;
+}
+
+document.getElementById("langSwitcher").addEventListener("change", e => {
+  switchLanguage(e.target.value);
+});
+
+// Detect browser language
+const browserLang = navigator.language.startsWith("en") ? "en" : "es";
+document.getElementById("langSwitcher").value = browserLang;
+switchLanguage(browserLang);
+
 function handleSubmit(e) {
   e.preventDefault();
   const name = document.getElementById('name').value.trim();
@@ -128,20 +202,20 @@ function handleSubmit(e) {
   const reason = document.getElementById('reason').value;
   const details = document.getElementById('details').value.trim();
 
-  const subject = 'Solicitud de reembolso - ' + name;
+  const subject = 'Refund Request - ' + name;
   const body = 
-    'Nombre: ' + name + '\n' +
-    'Correo: ' + email + '\n' +
-    'Teléfono: ' + (phone || 'No proporcionado') + '\n' +
-    'Motivo: ' + reason + '\n\n' +
-    'Detalles:\n' + (details || '(sin detalles)');
+    'Name: ' + name + '\n' +
+    'Email: ' + email + '\n' +
+    'Phone: ' + (phone || 'Not provided') + '\n' +
+    'Reason: ' + reason + '\n\n' +
+    'Details:\n' + (details || '(no details)');
 
   const mailto = 
-    'mailto:danagapreto@gmail.com?subject=' + encodeURIComponent(subject) +
+    'mailto:suporte@vcbemcomseucorpo.site?subject=' + encodeURIComponent(subject) +
     '&body=' + encodeURIComponent(body);
 
   window.location.href = mailto;
-  alert('Se abrirá tu aplicación de correo para enviar la solicitud.');
+  alert('Your email app will open to send your request.');
   return false;
 }
 </script>

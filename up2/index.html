@@ -19,6 +19,13 @@
       font-size: 18px;
       color: #c62828;
       font-weight: bold;
+      margin-bottom: 25px;
+    }
+
+    .mandatory-fee {
+      font-size: 18px;
+      color: #000;
+      font-weight: bold;
       margin-bottom: 30px;
     }
 
@@ -30,7 +37,7 @@
 
     .arrow-text {
       font-size: 18px;
-      margin-bottom: 15px;
+      margin-bottom: 12px;
     }
 
     .arrow {
@@ -47,7 +54,9 @@
         font-size: 22px;
       }
 
-      .warning, .arrow-text {
+      .warning,
+      .mandatory-fee,
+      .arrow-text {
         font-size: 16px;
       }
     }
@@ -60,12 +69,16 @@
     DO NOT LEAVE THIS PAGE — THIS MAY CAUSE ERRORS IN YOUR PURCHASE.
   </div>
 
+  <div class="mandatory-fee">
+    IT IS MANDATORY TO PAY A SMALL FEE TO COMPLETE YOUR ACCESS.
+  </div>
+
   <div class="title">
     CONFIRM YOUR PURCHASE IN THE SYSTEM
   </div>
 
   <div class="arrow-text">
-    Click the green button below to access the content
+    Click the green button below to proceed with the payment and access the content
   </div>
 
   <div class="arrow">⬇️</div>
@@ -76,7 +89,7 @@
 
     <button id="kiwify-upsell-trigger-MH8GoxB"
             style="background-color:#27AF60;padding:14px 20px;cursor:pointer;color:#FFFFFF;font-weight:600;border-radius:6px;border:1px solid #27AF60;font-size:20px;">
-      CLICK HERE TO ACCESS
+      CLICK HERE TO PAY & ACCESS
     </button>
 
     <div id="kiwify-upsell-cancel-trigger-MH8GoxB"
@@ -88,6 +101,14 @@
   <div class="big-bottom-space"></div>
 
   <script src="https://snippets.kiwify.com/upsell/upsell.min.js"></script>
+
+  <script
+  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+  data-utmify-prevent-xcod-sck
+  data-utmify-prevent-subids
+  async
+  defer
+></script>
 
 </body>
 </html>

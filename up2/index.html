@@ -1,679 +1,93 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
+  <title>Confirm Purchase</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Oferta Especial</title>
+
   <style>
     body {
       margin: 0;
       padding: 0;
+      background: #ffffff;
       font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
     }
-    
-    /* Esconder ambos os conteúdos inicialmente */
-    #mobile-content, #desktop-content {
-      display: none;
-    }
-    
-    /* Estilos para mobile */
-    .mobile-top-banner {
-      background: red;
-      color: white;
+
+    .warning {
+      font-size: 18px;
+      color: #c62828;
       font-weight: bold;
-      padding: 10px;
-      font-size: 16px;
-      text-align: center;
-    }
-
-    .mobile-container {
-      padding: 40px 20px;
-      max-width: 600px;
-      margin: 0 auto;
-      text-align: center;
-      background: #fff;
-    }
-
-    .mobile-logo {
-      max-width: 200px;
-    }
-
-    .mobile-progress-container {
-      background: #eee;
-      border-radius: 10px;
-      height: 15px;
-      width: 100%;
-      margin: 10px auto;
-    }
-
-    .mobile-progress-bar {
-      background: #1fa61f;
-      height: 15px;
-      width: 20%;
-      border-radius: 10px;
-    }
-
-    .mobile-price-circle {
-      font-size: 28px;
-      color: #1fa61f;
-      font-weight: bold;
-      border: 2px solid #1fa61f;
-      border-radius: 10px;
-      display: inline-block;
-      padding: 5px 20px;
-      margin: 20px 0;
-    }
-
-    .mobile-btn-accept {
-      display: inline-block;
-      background: linear-gradient(90deg, #16a34a, #059669);
-      color: white;
-      padding: 14px 22px;
-      font-weight: 700;
-      font-size: 15px;
-      text-decoration: none;
-      border-radius: 12px;
-      position: relative;
-      box-shadow: 0 8px 30px rgba(22, 163, 74, 0.4);
-      animation: pulse 1.8s ease-in-out infinite;
-      margin: 20px 0;
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(0.98); box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.7); }
-      50% { transform: scale(1.05); box-shadow: 0 0 0 12px rgba(22, 163, 74, 0); }
-      100% { transform: scale(0.98); box-shadow: 0 0 0 0 rgba(22, 163, 74, 0); }
-    }
-
-    .mobile-faq-title {
-      font-weight: bold;
-      font-size: 20px;
-      margin-top: 40px;
-    }
-
-    .mobile-faq-item {
-      color: #1fa61f;
-      font-weight: bold;
-      margin-top: 10px;
-    }
-
-    .mobile-faq-text {
-      font-size: 13px;
-      color: #333;
-      margin: 10px 0;
-    }
-
-    /* Estilos para desktop */
-    #desktop-content {
-      background: linear-gradient(135deg, #16a34a 0%, #22c55e 50%, #15803d 100%);
-      min-height: 100vh;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-      line-height: 1.6;
-      color: #333;
-    }
-
-    .desktop-container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 40px 20px;
-      background: rgba(255,255,255,0.95);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.1);
-      margin-top: 40px;
-      margin-bottom: 40px;
-      border-radius: 20px;
-      backdrop-filter: blur(10px);
-    }
-
-    .desktop-header {
-      text-align: center;
-      padding: 40px 0;
-      border-bottom: 3px solid #f0f9ff;
-      margin-bottom: 40px;
-      background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
-      border-radius: 15px;
-    }
-
-    .desktop-header h1 {
-      color: #14532d;
-      font-size: 2.8rem;
-      margin-bottom: 20px;
-      font-weight: 800;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-    }
-
-    .desktop-subtitle {
-      color: #166534;
-      font-size: 1.3rem;
-      max-width: 700px;
-      margin: 0 auto;
-      font-weight: 300;
-    }
-
-    .desktop-hero-section {
-      text-align: center;
-      margin: 50px 0;
-      padding: 40px;
-      background: linear-gradient(135deg, #22c55e 0%, #16a34a 50%, #15803d 100%);
-      border-radius: 20px;
-      color: white;
-    }
-
-    .desktop-hero-section h2 {
-      font-size: 2.2rem;
-      margin-bottom: 20px;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-    }
-
-    .desktop-hero-section p {
-      font-size: 1.1rem;
-      opacity: 0.9;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .desktop-features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-      margin: 50px 0;
-    }
-
-    .desktop-feature-card {
-      background: white;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-      transition: all 0.3s ease;
-      border: 1px solid #e2e8f0;
-    }
-
-    .desktop-feature-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
-    }
-
-    .desktop-feature-icon {
-      font-size: 3rem;
-      margin-bottom: 20px;
-      display: block;
-    }
-
-    .desktop-feature-card h3 {
-      color: #14532d;
-      font-size: 1.4rem;
-      margin-bottom: 15px;
-      font-weight: 600;
-    }
-
-    .desktop-feature-card p {
-      color: #4a5568;
-      line-height: 1.6;
-    }
-
-    .desktop-pricing-section {
-      background: linear-gradient(135deg, #059669 0%, #047857 100%);
-      color: white;
-      padding: 50px;
-      border-radius: 20px;
-      text-align: center;
-      margin: 50px 0;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .desktop-pricing-section::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-      opacity: 0.3;
-    }
-
-    .desktop-pricing-section h3 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .desktop-old-price {
-      text-decoration: line-through;
-      color: rgba(255,255,255,0.7);
-      font-size: 1.3rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .desktop-current-price {
-      font-size: 3rem;
-      font-weight: bold;
-      color: #ffffff;
-      margin: 20px 0;
-      position: relative;
-      z-index: 1;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-    }
-
-    .desktop-buttons-container {
-      display: flex;
-      gap: 30px;
-      justify-content: center;
-      margin: 40px 0;
-      flex-wrap: wrap;
-    }
-
-    .desktop-btn {
-      padding: 18px 35px;
-      border: none;
-      border-radius: 12px;
-      font-size: 1.2rem;
-      font-weight: 700;
-      cursor: pointer;
-      text-decoration: none;
-      text-align: center;
-      transition: all 0.3s ease;
-      min-width: 250px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .desktop-btn::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-      transition: left 0.5s;
-    }
-
-    .desktop-btn:hover::before {
-      left: 100%;
-    }
-
-    .desktop-btn-accept {
-      background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
-      color: white;
-      box-shadow: 0 10px 25px rgba(22, 163, 74, 0.4);
-    }
-
-    .desktop-btn-accept:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 15px 35px rgba(22, 163, 74, 0.6);
-    }
-
-    .desktop-testimonials {
-      margin: 60px 0;
-    }
-
-    .desktop-testimonials h3 {
-      text-align: center;
-      font-size: 1.8rem;
-      color: #14532d;
       margin-bottom: 30px;
     }
 
-    .desktop-testimonial-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 25px;
+    .title {
+      font-size: 26px;
+      font-weight: bold;
+      margin-bottom: 25px;
     }
 
-    .desktop-testimonial-card {
-      background: #f0fdf4;
-      padding: 25px;
-      border-radius: 12px;
-      border-left: 4px solid #22c55e;
-    }
-
-    .desktop-testimonial-card p {
-      font-style: italic;
-      color: #15803d;
+    .arrow-text {
+      font-size: 18px;
       margin-bottom: 15px;
     }
 
-    .desktop-testimonial-author {
-      font-weight: 600;
-      color: #14532d;
+    .arrow {
+      font-size: 40px;
+      margin-bottom: 25px;
     }
 
-    .desktop-guarantee {
-      background: #f0fff4;
-      border: 2px solid #68d391;
-      border-radius: 15px;
-      padding: 30px;
-      text-align: center;
-      margin: 40px 0;
+    .big-bottom-space {
+      height: 250px;
     }
 
-    .desktop-guarantee h4 {
-      color: #22543d;
-      font-size: 1.3rem;
-      margin-bottom: 15px;
-    }
-
-    .desktop-guarantee p {
-      color: #2f855a;
-    }
-
-    @media (max-width: 768px) {
-      .desktop-container {
-        margin: 20px;
-        padding: 20px;
+    @media (max-width: 600px) {
+      .title {
+        font-size: 22px;
       }
 
-      .desktop-header h1 {
-        font-size: 2.2rem;
-      }
-
-      .desktop-buttons-container {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .desktop-btn {
-        min-width: 100%;
+      .warning, .arrow-text {
+        font-size: 16px;
       }
     }
   </style>
-  <script>
-    // Variável global para travar a decisão inicial
-    let contentTypeDecided = false;
-    let isRealMobileDevice = false;
-    
-    function isRealMobile() {
-      // DETECÇÃO INTELIGENTE - Rigorosa com emuladores, permissiva com mobiles reais
-      
-      // 1. Informações básicas da tela
-      const realScreenWidth = screen.width;
-      const realScreenHeight = screen.height;
-      const viewportWidth = window.innerWidth;
-      const viewportHeight = window.innerHeight;
-      const userAgent = navigator.userAgent.toLowerCase();
-      
-      // 2. User Agent - verificação básica
-      const mobileUA = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent);
-      
-      // 3. Características REAIS de mobile
-      const hasTouchScreen = ('ontouchstart' in window) && (navigator.maxTouchPoints > 0);
-      const hasOrientationAPI = ('orientation' in window);
-      const hasMotionAPI = ('DeviceMotionEvent' in window);
-      
-      // 4. Verificar se é um DESKTOP muito óbvio
-      const isObviousDesktop = realScreenWidth >= 1366 && realScreenHeight >= 768;
-      const isTooWideForMobile = realScreenWidth > 1024;
-      
-      // 5. Detectar EMULADOR (viewport muito diferente da tela real)
-      const viewportDiffWidth = Math.abs(viewportWidth - realScreenWidth);
-      const viewportDiffHeight = Math.abs(viewportHeight - realScreenHeight);
-      const isLikelyEmulator = (viewportDiffWidth > 100 || viewportDiffHeight > 150) && isObviousDesktop;
-      
-      // 6. Detectar mouse (desktop indicator)
-      const hasMouseCapability = matchMedia('(any-hover: hover)').matches;
-      
-      // 7. Verificar se é Chrome desktop simulando
-      const isChromeDesktop = userAgent.includes('chrome') && 
-                             (userAgent.includes('windows') || userAgent.includes('macintosh') || userAgent.includes('linux')) && 
-                             !userAgent.includes('mobile');
-      
-      // 8. Tamanho típico de mobile
-      const maxDimension = Math.max(realScreenWidth, realScreenHeight);
-      const minDimension = Math.min(realScreenWidth, realScreenHeight);
-      const isMobileSize = maxDimension <= 1024 && minDimension <= 768;
-      
-      // LÓGICA SIMPLIFICADA E MAIS PERMISSIVA:
-      
-      // Se tem características óbvias de DESKTOP = bloqueia
-      if (isObviousDesktop && hasMouseCapability && !hasTouchScreen) {
-        return false; // Desktop claro
-      }
-      
-      // Se é emulador óbvio = bloqueia  
-      if (isLikelyEmulator && isChromeDesktop) {
-        return false; // Emulador detectado
-      }
-      
-      // Se tem User Agent mobile E (touch OU tamanho mobile) = permite
-      if (mobileUA && (hasTouchScreen || isMobileSize)) {
-        return true; // Mobile real ou muito provável
-      }
-      
-      // Se tem tamanho mobile E touch = permite (mesmo sem UA mobile)
-      if (isMobileSize && hasTouchScreen && hasOrientationAPI) {
-        return true; // Mobile sem UA mobile (raro mas possível)
-      }
-      
-      // Se tela pequena E viewport pequeno = provavelmente mobile
-      if (realScreenWidth <= 768 && viewportWidth <= 768) {
-        return true; // Mobile com tela pequena
-      }
-      
-      // Caso padrão: desktop
-      return false;
-    }
-    
-    function forceDesktopView() {
-      document.getElementById("desktop-content").style.display = "block";
-      document.getElementById("mobile-content").style.display = "none";
-      contentTypeDecided = true;
-      isRealMobileDevice = false;
-    }
-    
-    function forceMobileView() {
-      document.getElementById("mobile-content").style.display = "block";
-      document.getElementById("desktop-content").style.display = "none";
-      contentTypeDecided = true;
-      isRealMobileDevice = true;
-    }
-    
-    function showContent() {
-      // Se já decidiu, não muda mais (TRAVA A DECISÃO)
-      if (contentTypeDecided) {
-        return;
-      }
-      
-      // Faz a verificação UMA VEZ só
-      if (isRealMobile()) {
-        forceMobileView();
-      } else {
-        forceDesktopView();
-      }
-    }
-    
-    // Detecta DevTools sendo aberto APÓS a decisão inicial (mais permissivo)
-    function detectDevToolsAfterLoad() {
-      // Só força desktop se detectar DevTools E for tela grande
-      const threshold = 200; // Mais permissivo
-      const isDevToolsOpen = (window.outerHeight - window.innerHeight > threshold) ||
-                            (window.outerWidth - window.innerWidth > threshold);
-      
-      const hasDesktopScreen = screen.width >= 1366;
-      
-      if (isDevToolsOpen && isRealMobileDevice && hasDesktopScreen) {
-        // Só força desktop se for tela de desktop COM DevTools
-        forceDesktopView();
-      }
-    }
-    
-    // Executa APENAS quando a página carrega
-    window.addEventListener('load', () => {
-      showContent();
-      
-      // Monitora DevTools de forma mais permissiva
-      setInterval(detectDevToolsAfterLoad, 2000);
-    });
-    
-    // Proteções leves mantidas
-    document.addEventListener('keydown', (e) => {
-      // Só bloqueia se for desktop óbvio
-      if (screen.width >= 1366 && 
-          (e.keyCode === 123 || 
-           (e.ctrlKey && e.shiftKey && e.keyCode === 73) ||
-           (e.ctrlKey && e.keyCode === 85))) {
-        e.preventDefault();
-        return false;
-      }
-    });
-    
-    document.addEventListener('contextmenu', (e) => {
-      // Só bloqueia right-click em desktop
-      if (screen.width >= 1366) {
-        e.preventDefault();
-        return false;
-      }
-    });
-    
-    // Console clear mais espaçado
-    if (typeof console !== 'undefined') {
-      setInterval(() => {
-        console.clear();
-      }, 10000); // 10 segundos
-    }
-  </script>
 </head>
+
 <body>
 
-<!-- CONTEÚDO PARA MOBILE -->
-<div id="mobile-content">
-  <div class="mobile-top-banner">N¡NO ABANDONES ESTA PÁGINA, PUEDE CAUSAR UN ERROR EN TU COMPRA!</div>
-  <div class="mobile-container">
-    <img src="https://receitasvirais.site/spot/images/opinilogo.png" alt="SPYY APP" class="mobile-logo">
+  <div class="warning">
+    DO NOT LEAVE THIS PAGE — THIS MAY CAUSE ERRORS IN YOUR PURCHASE.
+  </div>
 
-    <h2>¡FELICIDADES!</h2>
-    <h3>Seguimiento en tiempo real: ¡vea la ubicación de su pareja en solo 2 minutos!</h3>
+  <div class="title">
+    CONFIRM YOUR PURCHASE IN THE SYSTEM
+  </div>
 
-    <div class="mobile-progress-container">
-      <div class="mobile-progress-bar"></div>
-    </div>
+  <div class="arrow-text">
+    Click the green button below to access the content
+  </div>
 
-    <p><strong>¿Quieres saber exactamente dónde está tu pareja en tiempo real? Con nuestra función de rastreo avanzado, ¡puedes obtener su ubicación exacta en solo 2 minutos!</strong></p>
-    <p><strong>Con actualizaciones precisas en tiempo real, puedes monitorear los movimientos de tu pareja en cualquier momento y lugar. Ya sea para comprobar que está donde dijo estar o simplemente para tu tranquilidad, nuestro servicio te ofrece total discreción y seguridad.</strong></p>
-    <p><strong>Desbloquea esta potente función y toma el control total de la situación. En cuestión de minutos, sabrás exactamente dónde está tu pareja, sin que sospeche nada. ¡No pierdas esta oportunidad de mantenerte informado y garantizar tu tranquilidad!</strong></p>
+  <div class="arrow">⬇️</div>
 
-    <div class="mobile-price-circle">$ 17,32</div>
+  <div style="text-align:center" id="kiwify-upsell-MH8GoxB"
+       data-upsell-url="https://receitasvirais.site/up1/index.html"
+       data-downsell-url="https://receitasvirais.site/up1/index.html">
 
-    <!-- Botões de aceitar e recusar -->
-    <a class="mobile-btn-accept" href="https://boasalud.mycartpanda.com/ex-ocu/next-offer/69YNaedVX7?accepted=yes" target="_blank" rel="noopener noreferrer">
-      DESBLOQUEAR LOCALIZACIÓN AHORA
-    </a>
-    
-    <br><br>
-    
-    <a href="https://boasalud.mycartpanda.com/ex-ocu/next-offer/69YNaedVX7?accepted=no" style="display: inline-block; margin: 15px 10px; color: #666; font-size: 14px; text-decoration: underline; cursor: pointer; line-height: 1.4; max-width: 300px; text-align: center;" onmouseover="this.style.color='#333'; this.style.textDecoration='none';" onmouseout="this.style.color='#666'; this.style.textDecoration='underline';">
-      Rechazar esta oferta y continuar sin la función de localización
-    </a>
+    <button id="kiwify-upsell-trigger-MH8GoxB"
+            style="background-color:#27AF60;padding:14px 20px;cursor:pointer;color:#FFFFFF;font-weight:600;border-radius:6px;border:1px solid #27AF60;font-size:20px;">
+      CLICK HERE TO ACCESS
+    </button>
 
-    <!-- AVISO DE REINTENTO -->
-    <p style="font-size: 14px; color: #555; margin-top: 10px;">
-      Si intentaste comprar y por algún motivo falló, por favor inténtalo de nuevo al menos 3 veces más para que nuestro sistema cambie automáticamente de proveedor y funcione correctamente. ¡Gracias!
-    </p>
-      
-    <div class="mobile-faq-title">PREGUNTAS FRECUENTES</div>
-    <div class="mobile-faq-item">↩ ¿Por qué el 93% de la gente lleva esto consigo?</div>
-    <div class="mobile-faq-text">
-      La mayoría de las parejas Latinas mienten sobre dónde pasarán más tiempo con otra persona, según datos de G1 publicados esta semana. Pero con esto, tendrás su ubicación en tiempo real al alcance de tu mano, ¡dondequiera que estén en el mundo!
+    <div id="kiwify-upsell-cancel-trigger-MH8GoxB"
+         style="margin-top:1rem;cursor:pointer;font-size:16px;text-decoration:underline;font-family:sans-serif;">
+      .
     </div>
   </div>
 
-  <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-xcod-sck data-utmify-prevent-subids async defer></script>
-</div>
+  <div class="big-bottom-space"></div>
 
-<!-- CONTEÚDO PARA DESKTOP -->
-<div id="desktop-content">
-    <div class="desktop-container">
-        <div class="desktop-header">
-            <h1>🌿 Desparasitación Natural Completa</h1>
-            <p class="desktop-subtitle">Elimina parásitos de forma natural y segura con métodos probados por generaciones</p>
-        </div>
+  <script src="https://snippets.kiwify.com/upsell/upsell.min.js"></script>
 
-        <div class="desktop-hero-section">
-            <h2>Limpia Tu Organismo Naturalmente</h2>
-            <p>Descubre el poder de las hierbas medicinales y remedios ancestrales para eliminar parásitos intestinales de forma efectiva y sin efectos secundarios</p>
-        </div>
-
-        <div class="desktop-features-grid">
-            <div class="desktop-feature-card">
-                <span class="desktop-feature-icon">🌱</span>
-                <h3>100% Ingredientes Naturales</h3>
-                <p>Fórmulas basadas en hierbas medicinales como ajenjo, clavo, nogal negro y otras plantas con propiedades antiparasitarias comprobadas científicamente.</p>
-            </div>
-            <div class="desktop-feature-card">
-                <span class="desktop-feature-icon">🛡️</span>
-                <h3>Protocolo Completo</h3>
-                <p>Guía paso a paso de 30 días que incluye preparación, limpieza activa y mantenimiento para una desparasitación efectiva y duradera.</p>
-            </div>
-            <div class="desktop-feature-card">
-                <span class="desktop-feature-icon">💊</span>
-                <h3>Sin Efectos Secundarios</h3>
-                <p>A diferencia de los medicamentos químicos, nuestro método natural no causa náuseas, dolor de cabeza ni daña la flora intestinal beneficiosa.</p>
-            </div>
-            <div class="desktop-feature-card">
-                <span class="desktop-feature-icon">📋</span>
-                <h3>Lista de Síntomas</h3>
-                <p>Aprende a identificar los signos de infección parasitaria: fatiga, problemas digestivos, alergias, insomnio y muchos otros síntomas.</p>
-            </div>
-            <div class="desktop-feature-card">
-                <span class="desktop-feature-icon">🥗</span>
-                <h3>Plan Nutricional</h3>
-                <p>Dieta específica que potencia la eliminación de parásitos y fortalece el sistema inmunológico durante todo el proceso de limpieza.</p>
-            </div>
-            <div class="desktop-feature-card">
-                <span class="desktop-feature-icon">👨‍⚕️</span>
-                <h3>Respaldado Científicamente</h3>
-                <p>Métodos validados por estudios científicos y utilizados exitosamente por naturópatas y profesionales de medicina alternativa.</p>
-            </div>
-        </div>
-
-        <div class="desktop-testimonials">
-            <h3>Testimonios Reales de Nuestros Usuarios</h3>
-            <div class="desktop-testimonial-grid">
-                <div class="desktop-testimonial-card">
-                    <p>"Después de años de problemas digestivos, finalmente encontré la solución. En 30 días me sentí como nueva, con más energía que nunca."</p>
-                    <div class="desktop-testimonial-author">- Carmen López, 45 años</div>
-                </div>
-                <div class="desktop-testimonial-card">
-                    <p>"Mi doctor no encontraba la causa de mi fatiga crónica. Este protocolo natural me devolvió la vida. Resultados increíbles sin químicos."</p>
-                    <div class="desktop-testimonial-author">- Miguel Santos, 38 años</div>
-                </div>
-                <div class="desktop-testimonial-card">
-                    <p>"Probé varios medicamentos sin éxito. Con este método natural eliminé los parásitos de forma segura y efectiva. Lo recomiendo 100%."</p>
-                    <div class="desktop-testimonial-author">- Rosa Martínez, 52 años</div>
-                </div>
-            </div>
-        </div>
-
-        <div style="background: #fef3c7; border: 2px solid #fbbf24; border-radius: 15px; padding: 30px; text-align: center; margin: 40px 0; color: #92400e;">
-            <h4 style="margin-bottom: 15px; font-size: 1.3rem;">⚠️ Signos de que puedes tener parásitos:</h4>
-            <p style="margin: 0; line-height: 1.6;">Fatiga inexplicable • Problemas digestivos • Alergias frecuentes • Insomnio • Dolores de cabeza • Cambios de humor • Antojos de azúcar • Pérdida o aumento de peso sin explicación</p>
-        </div>
-
-        <div class="desktop-guarantee">
-            <h4>🛡️ Garantía de Satisfacción Total</h4>
-            <p>30 días de garantía sin preguntas. Si no ves mejoras significativas en tu salud y bienestar, te devolvemos el 100% de tu inversión.</p>
-        </div>
-
-        <div class="desktop-pricing-section">
-            <h3>Oferta Especial - Protocolo Completo</h3>
-            <div class="desktop-old-price">Valor regular: $197 USD</div>
-            <div class="desktop-current-price">$17,32 USD</div>
-            <p style="font-size: 1.1rem; opacity: 0.9;">Protocolo completo • Guías PDF • Videos explicativos • Soporte incluido</p>
-        </div>
-
-        <div class="desktop-buttons-container">
-            <a href="https://boasalud.mycartpanda.com/ex-ocu/next-offer/69YNaedVX7?accepted=yes" target="_blank" rel="noopener noreferrer" class="desktop-btn desktop-btn-accept">
-                🌿 SÍ, QUIERO DESPARASITARME NATURALMENTE
-            </a>
-        </div>
-        
-        <div style="text-align: center; margin: 20px 0;">
-            <a href="https://boasalud.mycartpanda.com/ex-ocu/next-offer/69YNaedVX7?accepted=no" style="color: #666; font-size: 16px; text-decoration: underline; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.color='#333'; this.style.textDecoration='none';" onmouseout="this.style.color='#666'; this.style.textDecoration='underline';">
-                No gracias, continuar sin el protocolo de desparasitación
-            </a>
-        </div>
-
-        <div style="background: #fef2f2; border: 1px solid #fca5a5; border-radius: 12px; padding: 20px; margin: 30px 0; font-size: 0.95rem; color: #991b1b;">
-            <strong>⚠️ Advertencia importante:</strong> Los parásitos pueden causar problemas de salud graves si no se tratan. Esta oferta especial de $17,32 tiene disponibil
+</body>
+</html>

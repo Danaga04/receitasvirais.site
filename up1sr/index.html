@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compra bajo revisión</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; padding: 0; font-family: "Poppins", sans-serif; background: #000; color: #fff; line-height: 1.4; text-align: center; }
+    /* Paleta en tonos rosas */
+    .header { background: linear-gradient(90deg, #e91e63, #880e4f); color: #fff; text-align: center; padding: 20px 10px; }
+    .header span.title-tag { background: #fff; color: #e91e63; font-weight: 800; font-size: 22px; padding: 5px 10px; display: inline-block; }
+    
+    .header-msg { margin-top: 15px; font-size: 15px; font-weight: 500; }
+    .email-container { 
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+        gap: 8px; 
+        margin-top: 5px; 
+        flex-wrap: wrap; 
+    }
+    .email-text { font-weight: 700; text-decoration: underline; }
+    .copy-btn {
+        background-color: #fff;
+        color: #e91e63;
+        border: none;
+        padding: 4px 10px;
+        border-radius: 4px;
+        font-weight: 700;
+        font-size: 12px;
+        cursor: pointer;
+        text-transform: uppercase;
+        transition: transform 0.1s;
+    }
+    .copy-btn:active { transform: scale(0.95); }
+
+    .step { text-align: center; font-size: 18px; font-weight: 700; margin: 20px 0 10px; }
+    .progress { width: 90%; margin: 0 auto; height: 30px; border: 1px solid #000; border-radius: 5px; overflow: hidden; }
+    /* Barra de progreso rosa */
+    .progress-bar { width: 75%; height: 100%; background: linear-gradient(90deg, #ff4081, #c2185b); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; }
+    .warning { font-size: 14px; margin: 10px 0; text-align: center; }
+    .warning span { color: #ffcc00; font-size: 18px; }
+    
+    /* Estilos del Botão Kiwify */
+    #kiwify-upsell-trigger-9DMnqnq {
+        background-color:#e91e63;
+        padding:18px 25px;
+        cursor:pointer;
+        color:#FFFFFF;
+        font-weight:700;
+        border-radius:8px;
+        border:none;
+        font-size:22px;
+        animation: pulse 1.5s infinite;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <span class="title-tag">¡FELICIDADES!</span>
+    <div class="header-msg">
+            NO SOLICITES UN REEMBOLSO. Mira el video a continuación. La factura aparecerá como SalRosa” y el correo de soporte es:
+      <div class="email-container">
+          <span class="email-text">suportecucurbitapepo@gmail.com</span>
+          <button class="copy-btn" onclick="copyEmail(this)">COPIAR</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="step">PASO 3 DE 4</div>
+
+  <div class="progress">
+    <div class="progress-bar">75%</div>
+  </div>
+
+  <div class="warning">
+    <span>⚠</span> Mira el video a continuación 👇 el acceso será enviado a tu correo.
+  </div>
+
+  <vturb-smartplayer id="vid-69c00dff423ef7939caa2406" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer> 
+  <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/players/69c00dff423ef7939caa2406/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
+  <br>
+  
+  <div style="text-align:center" id="kiwify-upsell-9ySyxct" data-upsell-url="https://sacredchantguide.site/up2sc/" data-downsell-url="https://sacredchantguide.site/dup1sc/">
+    <button id="kiwify-upsell-trigger-9ySyxct" style="background-color:#e91e63;padding:12px 16px;cursor:pointer;color:#FFFFFF;font-weight:600;border-radius:4px;border:1px solid #e91e63;font-size:20px;">ACCEDER AHORA</button>
+    <div id="kiwify-upsell-cancel-trigger-9ySyxct" style="margin-top:1rem;cursor:pointer;font-size:16px;text-decoration:underline;font-family:sans-serif;">rechazar y pagar el precio original</div>
+  </div>
+  <script src="https://snippets.kiwify.com/upsell/upsell.min.js"></script>
+
+  <script>
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        const confirmBtn = document.getElementById('kiwify-upsell-modal-charge');
+        if (confirmBtn) {
+          confirmBtn.click();
+          observer.disconnect();
+        }
+      });
+    });
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+  </script>
+
+  <div style="height: 100px;"></div>
+  <canvas id="confetti"></canvas>
+  <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+  <script>
+    const jsConfetti = new JSConfetti({ canvasId: 'confetti' });
+    window.onload = () => { jsConfetti.addConfetti(); };
+  </script>
+  
+  <script>
+    function copyEmail(btn) {
+        const email = "suportecucurbitapepo@gmail.com";
+        navigator.clipboard.writeText(email).then(() => {
+            const originalText = btn.innerText;
+            btn.innerText = "¡COPIADO!";
+            setTimeout(() => {
+                btn.innerText = originalText;
+            }, 2000);
+        }).catch(err => {
+            console.error('Failed to copy', err);
+        });
+    }
+  </script>
+
+  <style>
+    #confetti { position: fixed; height: 100%; width: 100%; top: 0; left: 0; z-index: 999; pointer-events: none; }
+  </style>
+  <h2 style="color: #e91e63; font-weight: 800; padding-bottom: 30px;">¡MIRA EL VIDEO ANTES DE HACER CLIC EN CUALQUIER BOTÓN! ¡NO ABANDONES ESTA PÁGINA!</h2>
+
+  <style>
+    .faq-section {
+        max-width: 800px;
+        margin: 0 auto 50px auto;
+        padding: 0 20px;
+        text-align: left;
+        font-family: "Poppins", sans-serif;
+    }
+    .faq-title {
+        text-align: center;
+        font-size: 28px;
+        font-weight: 800;
+        margin-bottom: 30px;
+        color: #fff;
+    }
+    .faq-item {
+        background-color: #111;
+        margin-bottom: 12px;
+        border-radius: 8px;
+        border: 1px solid #333;
+    }
+    .faq-item details {
+        width: 100%;
+    }
+    .faq-item summary {
+        padding: 18px 20px;
+        font-size: 16px;
+        font-weight: 700;
+        cursor: pointer;
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #fff;
+        outline: none;
+    }
+    .faq-item summary::-webkit-details-marker {
+        display: none;
+    }
+    .faq-item summary::after {
+        content: '+';
+        font-size: 24px;
+        color: #e91e63; /* Cambiado a rosa */
+        font-weight: 400;
+    }
+    .faq-item details[open] summary::after {
+        content: '-';
+    }
+    .faq-item details[open] summary {
+        border-bottom: 1px solid #333;
+    }
+    .faq-answer {
+        padding: 20px;
+        font-size: 14px;
+        color: #ccc;
+        line-height: 1.6;
+        font-weight: 400;
+    }
+    .faq-answer a {
+        color: #e91e63; /* Cambiado a rosa */
+        text-decoration: none;
+        font-weight: 600;
+    }
+    .faq-answer a:hover {
+        text-decoration: underline;
+    }
+  </style>
+
+  <div class="faq-section">
+      <h3 class="faq-title">Preguntas Frecuentes</h3>
+
+      <div class="faq-item">
+          <details>
+              <summary>1. ¿Cuál es el siguiente paso?</summary>
+              <div class="faq-answer">
+                  Mira el video de arriba y verás exactamente qué hacer a continuación. Tu acceso ya ha sido enviado al mismo correo electrónico que usaste en el formulario anterior. Si tienes alguna pregunta, contáctanos en <strong>suportecucurbitapepo@gmail.com</strong>.
+              </div>
+          </details>
+      </div>
+
+      <div class="faq-item">
+          <details>
+              <summary>2. ¿Tienes problemas para acceder al programa?</summary>
+              <div class="faq-answer">
+                  Revisa el enlace enviado a tu correo electrónico.<br><br>
+                  Antes de ingresar, asegúrate de mirar el video de arriba para que entiendas todo lo que recibirás dentro del Protocolo Sal Rosa.
+              </div>
+          </details>
+      </div>
+
+      <div class="faq-item">
+          <details>
+              <summary>3. ¿Cómo descargo la aplicación en mi teléfono?</summary>
+              <div class="faq-answer">
+                  Dentro de la plataforma encontrarás un sencillo tutorial que muestra cómo instalar y acceder a la aplicación en tu teléfono. Mientras llega tu correo de acceso, mira el video de arriba para que sepas exactamente qué esperar del Protocolo Sal Rosa.
+              </div>
+          </details>
+      </div>
+
+      <div class="faq-item">
+          <details>
+              <summary>4. ¿Por qué no debo solicitar un contracargo (reembolso en el banco)?</summary>
+              <div class="faq-answer">
+                  Los contracargos crean problemas graves con los sistemas de pago y pueden bloquear automáticamente el acceso al programa y a futuras actualizaciones. Si experimentas algún problema o necesitas ayuda, contáctanos primero en <strong>suportecucurbitapepo@gmail.com</strong> para que podamos resolverlo rápidamente para ti.
+              </div>
+          </details>
+      </div>
+
+      <div class="faq-item">
+          <details>
+              <summary>5. No recibí mi correo de acceso. ¿Qué debo hacer?</summary>
+              <div class="faq-answer">
+                  Primero, revisa tu carpeta de Spam, Promociones o Correo no deseado. A veces el correo puede llegar allí.<br>
+                  Si aún no puedes encontrarlo, contáctanos en <strong>suportecucurbitapepo@gmail.com</strong> y reenviaremos tu acceso.
+              </div>
+          </details>
+      </div>
+
+      <div class="faq-item">
+          <details>
+              <summary>6. ¿Cuánto tiempo tarda en llegar el acceso?</summary>
+              <div class="faq-answer">
+                  El acceso generalmente se envía en unos minutos después de tu compra. En algunos casos, los proveedores de correo pueden retrasar un poco la entrega.
+              </div>
+          </details>
+      </div>
+
+      <div class="faq-item">
+          <details>
+              <summary>7. ¿Qué recibiré exactamente?</summary>
+              <div class="faq-answer">
+                  Recibirás acceso completo al Protocolo Sal Rosa, incluyendo el contenido guiado y las instrucciones disponibles dentro de la plataforma.
+              </div>
+          </details>
+      </div>
+
+      <div class="faq-item">
+          <details>
+              <summary>8. No soy muy bueno con la tecnología. ¿Aún puedo usarlo?</summary>
+              <div class="faq-answer">
+                  Sí. La plataforma es muy fácil de usar y hay un tutorial paso a paso dentro que muestra exactamente cómo acceder a todo.
+              </div>
+          </details>
+      </div>
+
+      <div class="faq-item">
+          <details>
+              <summary>9. ¿A quién contacto si necesito ayuda?</summary>
+              <div class="faq-answer">
+                  Si necesitas cualquier tipo de ayuda, contáctanos en <strong>suportecucurbitapepo@gmail.com</strong> y te asistiremos lo antes posible.
+              </div>
+          </details>
+      </div>
+
+      <div class="faq-item">
+          <details>
+              <summary>10. No reconozco esta compra.</summary>
+              <div class="faq-answer">
+                  El cargo en tu estado de cuenta puede aparecer bajo el nombre <strong>Protocolo Sal Rosa</strong>, que es el nombre de nuestro programa. <br><br>
+                  Si ves cargos adicionales además de tu compra principal, significa que elegiste agregar productos adicionales haciendo clic en el botón para acceder a ellos durante el proceso de pago.<br><br>
+                  Si tienes alguna pregunta sobre un cargo, o si deseas solicitar un reembolso, por favor contáctanos primero en <strong>suportecucurbitapepo@gmail.com</strong> y con gusto te ayudaremos.
+              </div>
+          </details>
+      </div>
+  </div>
+</body>
+</html>

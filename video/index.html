@@ -1,0 +1,346 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head><base href="https://unveilingthesecret.online/gdmode">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Restricted Access - Private Presentation</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔒</text></svg>">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0a0a0a;
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* HEADER */
+        .header {
+            background: linear-gradient(180deg, #1a1a1a 0%, #0a0a0a 100%);
+            border-bottom: 1px solid #2a2a2a;
+            padding: 16px 20px;
+            text-align: center;
+        }
+
+        .header-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(220, 38, 38, 0.15);
+            border: 1px solid rgba(220, 38, 38, 0.3);
+            padding: 6px 14px;
+            border-radius: 4px;
+            margin-bottom: 12px;
+        }
+
+        .header-badge .lock-icon {
+            font-size: 14px;
+        }
+
+        .header-badge span {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            color: #dc2626;
+            text-transform: uppercase;
+        }
+
+        .header-expiry {
+            font-size: 15px;
+            color: #a0a0a0;
+            margin-bottom: 10px;
+        }
+
+        .header-expiry .date {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .header-sound {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #d4af37;
+        }
+
+        .header-sound .sound-icon {
+            font-size: 16px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* MAIN CONTENT */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 30px 20px 50px;
+        }
+
+        /* VTURB CONTAINER */
+        .vturb-container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Placeholder styling - remove this comment block when adding VTurb code */
+        .vturb-placeholder {
+            background: #1a1a1a;
+            border: 2px dashed #333;
+            border-radius: 8px;
+            padding: 60px 20px;
+            text-align: center;
+            color: #666;
+        }
+
+        .vturb-placeholder p {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .vturb-placeholder code {
+            background: #0a0a0a;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            color: #888;
+        }
+
+        /* FOOTER */
+        .footer {
+            background: #0a0a0a;
+            border-top: 1px solid #1a1a1a;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #666;
+            text-decoration: none;
+            font-size: 12px;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: #888;
+        }
+
+        .footer-disclaimer {
+            font-size: 11px;
+            color: #444;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .footer-copyright {
+            font-size: 11px;
+            color: #333;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .header {
+                padding: 14px 16px;
+            }
+
+            .header-badge {
+                padding: 5px 12px;
+                margin-bottom: 10px;
+            }
+
+            .header-badge span {
+                font-size: 11px;
+            }
+
+            .header-expiry {
+                font-size: 13px;
+                margin-bottom: 8px;
+            }
+
+            .header-sound {
+                font-size: 13px;
+            }
+
+            .main-content {
+                padding: 20px 12px 40px;
+            }
+
+            .footer {
+                padding: 24px 16px;
+            }
+
+            .footer-links {
+                gap: 16px;
+            }
+        }
+    </style>
+    <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
+<link rel="preload" href="https://scripts.converteai.net/ba36843e-7f7c-4a38-b092-89915fbffa1e/ab-test/695224e084040898eb120602/player.js" as="script">
+<link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+<link rel="dns-prefetch" href="https://cdn.converteai.net">
+<link rel="dns-prefetch" href="https://scripts.converteai.net">
+<link rel="dns-prefetch" href="https://images.converteai.net">
+<link rel="dns-prefetch" href="https://m3u8.vturb.net">
+<link rel="dns-prefetch" href="https://api.vturb.com.br">
+    <script>
+  window.pixelId = "69521c0cded4fcdd3af66458";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+  document.head.appendChild(a);
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3CB9YFSHKF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3CB9YFSHKF');
+</script>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-badge">
+            <span class="lock-icon">🔒</span>
+            <span>Restricted Access</span>
+        </div>
+        
+        <p class="header-expiry">
+            This private presentation expires: <span class="date" id="expiry-date"></span>
+        </p>
+        
+        <div class="header-sound">
+            <span class="sound-icon">🔊</span>
+            <span>Click play and turn your sound ON</span>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+        <div class="vturb-container">
+            
+            <!-- ============================================== -->
+            <!-- VTURB CODE START - Paste your VTurb code below -->
+            <!-- ============================================== -->
+           <vturb-smartplayer id="ab-695224e084040898eb120602" style="display: block; margin: 0 auto; width: 100%; "></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/ba36843e-7f7c-4a38-b092-89915fbffa1e/ab-test/695224e084040898eb120602/player.js", s.async=!0,document.head.appendChild(s); </script>
+            <!-- ============================================== -->
+            <!-- VTURB CODE END -->
+            <!-- ============================================== -->
+            
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <nav class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact</a>
+                <a href="#">Support</a>
+            </nav>
+            
+            <p class="footer-disclaimer">
+                Results may vary. The information on this website is for educational purposes only and is not intended as medical advice.
+            </p>
+            
+            <p class="footer-copyright">
+                © <span id="current-year"></span> God Mode. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script>
+        // Dynamic date - always shows today's date
+        function formatDate(date) {
+            const options = { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            };
+            return date.toLocaleDateString('en-US', options);
+        }
+
+        // Set expiry date to today
+        document.getElementById('expiry-date').textContent = formatDate(new Date());
+        
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+<script
+  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+  data-utmify-prevent-xcod-sck
+  data-utmify-prevent-subids
+  data-utmify-ignore-iframe
+  data-utmify-is-cartpanda
+  async
+  defer
+></script>
+
+<script>
+  // ALTERE O LINK PARA A P�GINA QUE QUISER MOSTRAR QUANDO O USU�RIO TENTAR SAIR
+  const link = 'https://unveilingthesecret.online/backgm';
+
+  function setBackRedirect(url) {
+    let urlBackRedirect = url;
+    urlBackRedirect = urlBackRedirect =
+      urlBackRedirect.trim() +
+      (urlBackRedirect.indexOf('?') > 0 ? '&' : '?') +
+      document.location.search.replace('?', '').toString();
+
+    history.pushState({}, '', location.href);
+    history.pushState({}, '', location.href);
+    history.pushState({}, '', location.href);
+
+    window.addEventListener('popstate', () => {
+      console.log('onpopstate', urlBackRedirect);
+      setTimeout(() => {
+        location.href = urlBackRedirect;
+      }, 1);
+    });
+  }
+
+  setBackRedirect(link);
+</script>
+
+</body>
+</html>

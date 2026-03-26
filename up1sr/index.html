@@ -1,155 +1,143 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Compra bajo revisión</title>
+  <title>God Mod - Exclusive Access</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
-    body { margin: 0; padding: 0; font-family: "Poppins", sans-serif; background: #000; color: #fff; line-height: 1.4; text-align: center; }
-    /* Paleta en tonos rosas */
-    .header { background: linear-gradient(90deg, #e91e63, #880e4f); color: #fff; text-align: center; padding: 20px 10px; }
-    .header span.title-tag { background: #fff; color: #e91e63; font-weight: 800; font-size: 22px; padding: 5px 10px; display: inline-block; }
-    
-    .header-msg { margin-top: 15px; font-size: 15px; font-weight: 500; }
-    .email-container { 
-        display: flex; 
-        justify-content: center; 
-        align-items: center; 
-        gap: 8px; 
-        margin-top: 5px; 
-        flex-wrap: wrap; 
+    body { 
+        margin: 0; 
+        padding: 0; 
+        font-family: "Poppins", sans-serif; 
+        background: #000; 
+        color: #fff; 
+        line-height: 1.6; 
     }
-    .email-text { font-weight: 700; text-decoration: underline; }
-    .copy-btn {
-        background-color: #fff;
-        color: #e91e63;
-        border: none;
-        padding: 4px 10px;
-        border-radius: 4px;
+    
+    .header { 
+        background: linear-gradient(90deg, #e91e63, #880e4f); 
+        color: #fff; 
+        text-align: center; 
+        padding: 15px 10px; 
         font-weight: 700;
-        font-size: 12px;
-        cursor: pointer;
-        text-transform: uppercase;
-        transition: transform 0.1s;
+        font-size: 18px;
     }
-    .copy-btn:active { transform: scale(0.95); }
 
-    .step { text-align: center; font-size: 18px; font-weight: 700; margin: 20px 0 10px; }
-    .progress { width: 90%; margin: 0 auto; height: 30px; border: 1px solid #000; border-radius: 5px; overflow: hidden; }
-    /* Barra de progreso rosa */
-    .progress-bar { width: 75%; height: 100%; background: linear-gradient(90deg, #ff4081, #c2185b); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; }
-    .warning { font-size: 14px; margin: 10px 0; text-align: center; }
-    .warning span { color: #ffcc00; font-size: 18px; }
-    
-    /* Estilos del Botão Kiwify */
-    #kiwify-upsell-trigger-9DMnqnq {
-        background-color:#e91e63;
-        padding:18px 25px;
-        cursor:pointer;
-        color:#FFFFFF;
-        font-weight:700;
-        border-radius:8px;
-        border:none;
-        font-size:22px;
-        animation: pulse 1.5s infinite;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    .tsl-container {
+        max-width: 750px;
+        margin: 40px auto;
+        padding: 0 20px;
+        font-size: 18px;
+        color: #ddd;
+    }
+
+    .tsl-container h1 {
+        text-align: center;
+        color: #fff;
+        font-size: 32px;
+        font-weight: 800;
+        line-height: 1.3;
+        margin-bottom: 30px;
+    }
+
+    .tsl-container h1 span {
+        color: #e91e63;
+    }
+
+    .tsl-container p {
+        margin-bottom: 20px;
+    }
+
+    .tsl-container strong {
+        color: #fff;
+        font-weight: 700;
+    }
+
+    .tsl-list {
+        background: #111;
+        border-left: 4px solid #e91e63;
+        padding: 20px;
+        margin: 30px 0;
+        border-radius: 0 8px 8px 0;
+    }
+
+    .tsl-list ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .tsl-list li {
+        margin-bottom: 15px;
+        padding-left: 25px;
+        position: relative;
+    }
+
+    .tsl-list li::before {
+        content: "🔥";
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    .tsl-list li:last-child {
+        margin-bottom: 0;
+    }
+
+    /* Kiwify Button Custom Styles */
+    .kiwify-wrapper {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #kiwify-upsell-trigger-HH5YN1b {
+        background-color: #27AF60 !important;
+        color: #FFFFFF !important;
+        padding: 20px 40px !important;
+        font-family: "Poppins", sans-serif !important;
+        font-size: 24px !important;
+        font-weight: 800 !important;
+        border: none !important;
+        border-radius: 8px !important;
+        cursor: pointer !important;
+        text-transform: uppercase !important;
+        box-shadow: 0 4px 20px rgba(39, 175, 96, 0.4) !important;
+        animation: pulse 1.5s infinite !important;
+        width: 100% !important;
+        max-width: 500px !important;
+        transition: background-color 0.3s !important;
+        display: block;
+        margin: 0 auto;
+    }
+
+    #kiwify-upsell-trigger-HH5YN1b:hover {
+        background-color: #219653 !important;
+    }
+
+    #kiwify-upsell-cancel-trigger-HH5YN1b {
+        color: #888 !important;
+        transition: color 0.3s !important;
+        display: inline-block;
+        margin-top: 15px !important;
+    }
+
+    #kiwify-upsell-cancel-trigger-HH5YN1b:hover {
+        color: #fff !important;
     }
 
     @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
+      0% { transform: scale(1); box-shadow: 0 4px 20px rgba(39, 175, 96, 0.4); }
+      50% { transform: scale(1.03); box-shadow: 0 4px 30px rgba(39, 175, 96, 0.7); }
+      100% { transform: scale(1); box-shadow: 0 4px 20px rgba(39, 175, 96, 0.4); }
     }
-  </style>
-</head>
-<body>
 
-  <div class="header">
-    <span class="title-tag">¡FELICIDADES!</span>
-    <div class="header-msg">
-            NO SOLICITES UN REEMBOLSO. Mira el video a continuación. La factura aparecerá como SalRosa” y el correo de soporte es:
-      <div class="email-container">
-          <span class="email-text">suportecucurbitapepo@gmail.com</span>
-          <button class="copy-btn" onclick="copyEmail(this)">COPIAR</button>
-      </div>
-    </div>
-  </div>
-
-  <div class="step">PASO 3 DE 4</div>
-
-  <div class="progress">
-    <div class="progress-bar">75%</div>
-  </div>
-
-  <div class="warning">
-    <span>⚠</span> Mira el video a continuación 👇 el acceso será enviado a tu correo.
-  </div>
-
-  <vturb-smartplayer id="vid-69c00dff423ef7939caa2406" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer> 
-  <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/players/69c00dff423ef7939caa2406/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
-  <br>
-  
-
-<div style="text-align:center" id="kiwify-upsell-5OeIH8s" data-upsell-url="https://receitasvirais.site/up2sr/" data-downsell-url="https://receitasvirais.site/up2sr/">
-          <button id="kiwify-upsell-trigger-5OeIH8s" style="background-color:#27AF60;padding:12px 16px;cursor:pointer;color:#FFFFFF;font-weight:600;border-radius:4px;border:1px solid #27AF60;font-size:20px;">ACCEDER AHORA</button>
-          <div id="kiwify-upsell-cancel-trigger-5OeIH8s" style="margin-top:1rem;cursor:pointer;font-size:16px;text-decoration:underline;font-family:sans-serif;">No quiero, prefiero pagar el precio inflado más adelante</div>
-        </div><script src="https://snippets.kiwify.com/upsell/upsell.min.js"></script>
-
-  
-
-  <script>
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        const confirmBtn = document.getElementById('kiwify-upsell-modal-charge');
-        if (confirmBtn) {
-          confirmBtn.click();
-          observer.disconnect();
-        }
-      });
-    });
-
-    observer.observe(document.body, {
-      childList: true,
-      subtree: true
-    });
-  </script>
-
-  <div style="height: 100px;"></div>
-  <canvas id="confetti"></canvas>
-  <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
-  <script>
-    const jsConfetti = new JSConfetti({ canvasId: 'confetti' });
-    window.onload = () => { jsConfetti.addConfetti(); };
-  </script>
-  
-  <script>
-    function copyEmail(btn) {
-        const email = "suportecucurbitapepo@gmail.com";
-        navigator.clipboard.writeText(email).then(() => {
-            const originalText = btn.innerText;
-            btn.innerText = "¡COPIADO!";
-            setTimeout(() => {
-                btn.innerText = originalText;
-            }, 2000);
-        }).catch(err => {
-            console.error('Failed to copy', err);
-        });
-    }
-  </script>
-
-  <style>
-    #confetti { position: fixed; height: 100%; width: 100%; top: 0; left: 0; z-index: 999; pointer-events: none; }
-  </style>
-  <h2 style="color: #e91e63; font-weight: 800; padding-bottom: 30px;">¡MIRA EL VIDEO ANTES DE HACER CLIC EN CUALQUIER BOTÓN! ¡NO ABANDONES ESTA PÁGINA!</h2>
-
-  <style>
+    /* FAQ Styles */
     .faq-section {
-        max-width: 800px;
-        margin: 0 auto 50px auto;
+        max-width: 750px;
+        margin: 60px auto 50px auto;
         padding: 0 20px;
         text-align: left;
-        font-family: "Poppins", sans-serif;
     }
     .faq-title {
         text-align: center;
@@ -185,7 +173,7 @@
     .faq-item summary::after {
         content: '+';
         font-size: 24px;
-        color: #e91e63; /* Cambiado a rosa */
+        color: #e91e63;
         font-weight: 400;
     }
     .faq-item details[open] summary::after {
@@ -202,111 +190,211 @@
         font-weight: 400;
     }
     .faq-answer a {
-        color: #e91e63; /* Cambiado a rosa */
+        color: #e91e63;
         text-decoration: none;
         font-weight: 600;
     }
     .faq-answer a:hover {
         text-decoration: underline;
     }
+
+    @media (max-width: 600px) {
+        .tsl-container h1 { font-size: 26px; }
+        .tsl-container { font-size: 16px; }
+        #kiwify-upsell-trigger-HH5YN1b { font-size: 20px !important; padding: 15px 20px !important; }
+    }
   </style>
+</head>
+<body>
+
+  <div class="header">
+    STEP 3 OF 4: DO NOT CLOSE THIS PAGE!
+  </div>
+
+  <div class="tsl-container">
+    <h1>Congratulations warrior, you've just discovered there is a level of pleasure that <span>99% of men</span> will never give a woman.</h1>
+
+    <p>And the best part? You're already ahead.</p>
+
+    <p>But now I need to be honest with you — imagine coming home tonight. She's lying down. You applying what you're about to learn here. And in less than 3 minutes, her legs are shaking, her fingers digging into the sheets, looking at you with an expression you've never seen on her face.</p>
+
+    <p>Not a controlled moan. Not a polite orgasm.</p>
+
+    <p><strong>A real explosion. Repeated. Uncontrollable.</strong></p>
+
+    <p>That is what the Forbidden Combinations do — and you are one step away from having this in your hands.</p>
+
+    <p>But there is an invisible problem that most of my students reported when they started applying everything I'm going to teach you shortly.</p>
+
+    <p>Most men hit this ceiling without understanding why. She got close, but didn't really explode. Or she exploded once, and the next time it didn't happen.</p>
+
+    <p>Or you felt like something was missing — as if you had reached the right door but without the exact key.</p>
+
+    <p>When a woman has an orgasm, the exact opposite of what happens to men occurs. They end up wanting more and more, and if you can't satisfy her, she ends up cooling down and feeling left halfway.</p>
+
+    <p>And do you know what separates the man who leaves her halfway from the man who makes her explode over and over again?</p>
+
+    <p><strong>The tongue.</strong></p>
+
+    <p>Not the hand. Not the penis. The tongue.</p>
+
+    <p>The clitoris has over 8,000 nerve endings concentrated in less than 1 centimeter — the highest nerve density in the entire human body. And these endings do not respond to brute pressure. They respond to precise, wet, and warm touch.</p>
+
+    <p>The tongue is the only instrument in the male body that delivers all three at the same time — with the flexibility to change direction, speed, and pressure in fractions of a second, without losing contact.</p>
+
+    <p>The oral squirt happens because tongue stimulation in the right spot triggers a response in the autonomic nervous system — the same part of the brain that controls breathing and heartbeats. She literally doesn't control it. The body obeys. And expels.</p>
+
+    <p>That's why it can't be replaced. There is no vibrator, no finger, no position that replicates what the tongue does when you know exactly where to place it.</p>
+
+    <p>That is why you see more and more lesbian couples in the world.</p>
+
+    <p>But for this to happen, the female body needs three paths to be activated together, at the right rhythm, in the right sequence — creating a chain reaction she literally cannot hold back.</p>
+
+    <p>That is why without the right combinations, you will continue leaving pleasure on the table. Hers. And yours.</p>
+
+    <p>The <strong>Forbidden Combinations</strong> are the result of years unraveling female anatomy until finding the three points that, when stimulated in sync by the mouth, the tongue, and the right pressure from the fingers, activate a response her body cannot block.</p>
+
+    <div class="tsl-list">
+        <p style="color: #fff; font-weight: 700; font-size: 20px; text-align: center; margin-top: 0;">Here is what you will learn:</p>
+        <ul>
+            <li><strong>The 3-Tempo Sequence:</strong> How to warm up, escalate, and detonate at the exact moment her body is at the peak of its involuntary response.</li>
+            <li><strong>The Forgotten Pressure Point:</strong> There is a point that, combined with the oral movement, multiplies the intensity by 3x. Almost no man knows it exists.</li>
+            <li><strong>The Repeated Explosion Rhythm:</strong> How to make her squirt not once, but several times in a row, without losing control of the moment.</li>
+            <li><strong>How to Read the Invisible Signs:</strong> The micro-movements of her body that tell you exactly when to speed up, when to stop for 2 seconds, and when to let it all out at once.</li>
+        </ul>
+    </div>
+
+    <p>When you master this, squirting is no longer a matter of luck.</p>
+
+    <p>You have two paths right now.</p>
+
+    <p><strong>The first:</strong> close this page, use what you've learned, and hope it works. Maybe you get close but don't quite get there — and you never know exactly what was missing.</p>
+
+    <p><strong>The second:</strong> get the Forbidden Combinations now, and leave here with the complete protocol in hand — tongue, fingers, rhythm, pressure, sequence — all mapped out, all tested, ready to use tonight.</p>
+
+    <p>The man who learns this today is the man she will remember for the rest of her life.</p>
+
+    <p>And since you are already my student, you will receive access to this explicit content with a <strong>90% discount</strong>.</p>
+
+    <p>Click the button below and secure your access now for a ridiculous one-time price, with no hidden fees, of <strong>only $59</strong>.</p>
+
+    <div class="kiwify-wrapper">
+        <div style="text-align:center" id="kiwify-upsell-HH5YN1b" data-upsell-url="https://receitasvirais.site/up2sr/" data-downsell-url="https://receitasvirais.site/up2sr/">
+          <button id="kiwify-upsell-trigger-HH5YN1b" style="background-color:#27AF60;padding:12px 16px;cursor:pointer;color:#FFFFFF;font-weight:600;border-radius:4px;border:1px solid #27AF60;font-size:20px;">ACCESS NOW!</button>
+          <div id="kiwify-upsell-cancel-trigger-HH5YN1b" style="margin-top:1rem;cursor:pointer;font-size:16px;text-decoration:underline;font-family:sans-serif;">no, thanks</div>
+        </div>
+        <script src="https://snippets.kiwify.com/upsell/upsell.min.js"></script>
+    </div>
+
+    <p>Moreover, when you click the green button below, you also get access to one of my naughty attendants who are ready to answer all your questions, and a few more things too... they love to chat.</p>
+
+    <p style="text-align: center; font-size: 22px; font-weight: 700; color: #fff; margin-top: 40px;">So, click below and then tell me how it went.</p>
+
+  </div>
 
   <div class="faq-section">
-      <h3 class="faq-title">Preguntas Frecuentes</h3>
+      <h3 class="faq-title">Frequently Asked Questions</h3>
 
       <div class="faq-item">
           <details>
-              <summary>1. ¿Cuál es el siguiente paso?</summary>
+              <summary>1. What happens after I purchase?</summary>
               <div class="faq-answer">
-                  Mira el video de arriba y verás exactamente qué hacer a continuación. Tu acceso ya ha sido enviado al mismo correo electrónico que usaste en el formulario anterior. Si tienes alguna pregunta, contáctanos en <strong>suportecucurbitapepo@gmail.com</strong>.
+                  Your access to the <strong>God Mod</strong> protocol will be sent immediately to the email address you used at checkout. If you have any questions, you can contact us at <strong>suportecucurbitapepo@gmail.com</strong>.
               </div>
           </details>
       </div>
 
       <div class="faq-item">
           <details>
-              <summary>2. ¿Tienes problemas para acceder al programa?</summary>
+              <summary>2. Having trouble accessing the program?</summary>
               <div class="faq-answer">
-                  Revisa el enlace enviado a tu correo electrónico.<br><br>
-                  Antes de ingresar, asegúrate de mirar el video de arriba para que entiendas todo lo que recibirás dentro del Protocolo Sal Rosa.
+                  Check the link sent to your email. Before logging in, make sure to follow the step-by-step instructions so you understand exactly how to apply the God Mod techniques.
               </div>
           </details>
       </div>
 
       <div class="faq-item">
           <details>
-              <summary>3. ¿Cómo descargo la aplicación en mi teléfono?</summary>
+              <summary>3. Why shouldn't I request a chargeback from my bank?</summary>
               <div class="faq-answer">
-                  Dentro de la plataforma encontrarás un sencillo tutorial que muestra cómo instalar y acceder a la aplicación en tu teléfono. Mientras llega tu correo de acceso, mira el video de arriba para que sepas exactamente qué esperar del Protocolo Sal Rosa.
+                  Chargebacks create severe issues with the payment systems and will automatically permanently block your access to the God Mod platform and all future updates. If you experience any issues or need a refund, contact us first at <strong>suportecucurbitapepo@gmail.com</strong> so we can resolve it for you immediately.
               </div>
           </details>
       </div>
 
       <div class="faq-item">
           <details>
-              <summary>4. ¿Por qué no debo solicitar un contracargo (reembolso en el banco)?</summary>
+              <summary>4. I didn't receive my access email. What should I do?</summary>
               <div class="faq-answer">
-                  Los contracargos crean problemas graves con los sistemas de pago y pueden bloquear automáticamente el acceso al programa y a futuras actualizaciones. Si experimentas algún problema o necesitas ayuda, contáctanos primero en <strong>suportecucurbitapepo@gmail.com</strong> para que podamos resolverlo rápidamente para ti.
+                  First, check your Spam, Promotions, or Junk folders. Sometimes the email gets filtered there.<br>
+                  If you still can't find it, contact our team at <strong>suportecucurbitapepo@gmail.com</strong> and we will manually resend your access.
               </div>
           </details>
       </div>
 
       <div class="faq-item">
           <details>
-              <summary>5. No recibí mi correo de acceso. ¿Qué debo hacer?</summary>
+              <summary>5. What exactly will I receive?</summary>
               <div class="faq-answer">
-                  Primero, revisa tu carpeta de Spam, Promociones o Correo no deseado. A veces el correo puede llegar allí.<br>
-                  Si aún no puedes encontrarlo, contáctanos en <strong>suportecucurbitapepo@gmail.com</strong> y reenviaremos tu acceso.
+                  You will receive full, unrestricted access to the <strong>God Mod</strong> protocol, including all the guided content, step-by-step anatomical breakdowns, and precise instructions available inside the platform.
               </div>
           </details>
       </div>
 
       <div class="faq-item">
           <details>
-              <summary>6. ¿Cuánto tiempo tarda en llegar el acceso?</summary>
+              <summary>6. I don't recognize this charge on my credit card.</summary>
               <div class="faq-answer">
-                  El acceso generalmente se envía en unos minutos después de tu compra. En algunos casos, los proveedores de correo pueden retrasar un poco la entrega.
-              </div>
-          </details>
-      </div>
-
-      <div class="faq-item">
-          <details>
-              <summary>7. ¿Qué recibiré exactamente?</summary>
-              <div class="faq-answer">
-                  Recibirás acceso completo al Protocolo Sal Rosa, incluyendo el contenido guiado y las instrucciones disponibles dentro de la plataforma.
-              </div>
-          </details>
-      </div>
-
-      <div class="faq-item">
-          <details>
-              <summary>8. No soy muy bueno con la tecnología. ¿Aún puedo usarlo?</summary>
-              <div class="faq-answer">
-                  Sí. La plataforma es muy fácil de usar y hay un tutorial paso a paso dentro que muestra exactamente cómo acceder a todo.
-              </div>
-          </details>
-      </div>
-
-      <div class="faq-item">
-          <details>
-              <summary>9. ¿A quién contacto si necesito ayuda?</summary>
-              <div class="faq-answer">
-                  Si necesitas cualquier tipo de ayuda, contáctanos en <strong>suportecucurbitapepo@gmail.com</strong> y te asistiremos lo antes posible.
-              </div>
-          </details>
-      </div>
-
-      <div class="faq-item">
-          <details>
-              <summary>10. No reconozco esta compra.</summary>
-              <div class="faq-answer">
-                  El cargo en tu estado de cuenta puede aparecer bajo el nombre <strong>Protocolo Sal Rosa</strong>, que es el nombre de nuestro programa. <br><br>
-                  Si ves cargos adicionales además de tu compra principal, significa que elegiste agregar productos adicionales haciendo clic en el botón para acceder a ellos durante el proceso de pago.<br><br>
-                  Si tienes alguna pregunta sobre un cargo, o si deseas solicitar un reembolso, por favor contáctanos primero en <strong>suportecucurbitapepo@gmail.com</strong> y con gusto te ayudaremos.
+                  The charge on your statement will appear under the name <strong>God Mod</strong> or our payment processor. <br><br>
+                  If you see additional charges besides your main purchase, it means you chose to add extra upgrades by clicking the button to access them during the checkout process.<br><br>
+                  If you have any questions about a charge, please contact us at <strong>suportecucurbitapepo@gmail.com</strong> and we will gladly help you.
               </div>
           </details>
       </div>
   </div>
+
+
+  <script>
+
+    const observer = new MutationObserver((mutations) => {
+
+      mutations.forEach((mutation) => {
+
+        const confirmBtn = document.getElementById('kiwify-upsell-modal-charge');
+
+        if (confirmBtn) {
+
+          confirmBtn.click();
+
+          // Opcional: Para o observer após clicar
+
+          observer.disconnect();
+
+        }
+
+      });
+
+    });
+
+
+
+    observer.observe(document.body, {
+
+      childList: true,
+
+      subtree: true
+
+    });
+
+  </script>
+
+
+
+
+  
 </body>
 </html>
+
+
+
+

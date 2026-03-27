@@ -281,8 +281,6 @@
             
             <div class="tsl-wrapper">
                 
-                <h3 class="tsl-heading">1. Relieves Anxiety + Future Perfect</h3>
-                
                 <p><strong>Okay, my friend, your access is all set.</strong> Just remember that to log in, all you have to do is click the green button below, and all the content will be available to you.</p>
                 
                 <p>But first, listen to what I have to say. There’s a fear that most men carry in silence.</p>
@@ -293,8 +291,6 @@
                 
                 <p>Imagine a version of yourself that lasts as long as you decide. Not stopping when your body gives up—but choosing your moment, like a man in control of the situation. Imagine the look on her face. The way she looks at you differently now. The way she seeks you out. The way she tells her friends.</p>
 
-                <h3 class="tsl-heading">2. The Scale of the Problem</h3>
-                
                 <p>Let’s be brutally honest for a moment.</p>
                 
                 <p>You already know something is wrong. You’ve known for a while. Maybe it started gradually—an occasional slip-up you brushed off as stress. Then it became more frequent. Then the anxiety about the anxiety itself set in.</p>
@@ -359,18 +355,14 @@
                 
                 <p>Click the button below. And learn this powerful baking soda recipe. Lock in your price before this batch sells out.</p>
                 
-                <p>Because the man you’re capable of being hasn’t gone anywhere.</p>
-                
-                <p>He was just waiting for the right key. <strong>This is it.</strong></p>
-
-                <br><br>
-
-                <div style="text-align:center" id="kiwify-upsell-Z7c07Kv" data-upsell-url="https://appsell-software.com/app/god-mode?app=1773837657437x815947424382058500" data-downsell-url="https://appsell-software.com/app/god-mode?app=1773837657437x815947424382058500">
+                <div style="text-align:center; margin: 35px 0;" id="kiwify-upsell-Z7c07Kv" data-upsell-url="https://appsell-software.com/app/god-mode?app=1773837657437x815947424382058500" data-downsell-url="https://appsell-software.com/app/god-mode?app=1773837657437x815947424382058500">
                     <button id="kiwify-upsell-trigger-Z7c07Kv" style="background-color:#27AF60;padding:18px 24px;cursor:pointer;color:#FFFFFF;font-weight:700;border-radius:6px;border:none;font-size:22px; width: 100%; box-shadow: 0 4px 15px rgba(39, 175, 96, 0.3);">ACCESS WITH A DISCOUNT</button>
                     <div id="kiwify-upsell-cancel-trigger-Z7c07Kv" style="margin-top:1.5rem;cursor:pointer;font-size:16px;text-decoration:underline;font-family:sans-serif; color: #7f8c8d;">No, pay the full price and not get access</div>
                 </div>
                 <script src="https://snippets.kiwify.com/upsell/upsell.min.js"></script>
-                <br>
+                <p>Because the man you’re capable of being hasn’t gone anywhere.</p>
+                
+                <p>He was just waiting for the right key. <strong>This is it.</strong></p>
 
             </div>
             
@@ -411,22 +403,7 @@
         const acceptModalBtn = document.getElementById('acceptModalBtn');
         const declineModalBtn = document.getElementById('declineModalBtn');
         
-        // CORREÇÃO: Apontando para o NOVO ID do botão do Kiwify (Z7c07Kv)
         const mainCTAButton = document.getElementById('kiwify-upsell-trigger-Z7c07Kv');
-        
-        // Se quiser que o link de recusar original abra o modal ao invés de redirecionar nativamente, 
-        // adicione o ID 'openModalBtn' ao texto de cancelamento no HTML acima e descomente o bloco abaixo:
-        /*
-        const openModalBtn = document.getElementById('openModalBtn');
-        if(openModalBtn) {
-            openModalBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                modal.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            });
-        }
-        */
         
         acceptModalBtn.addEventListener('click', function() {
             modal.classList.remove('active');
@@ -435,7 +412,6 @@
         });
         
         declineModalBtn.addEventListener('click', function() {
-            // CORREÇÃO: Redirecionando para a sua nova URL de downsell
             window.location.href = 'https://appsell-software.com/app/god-mode?app=1773837657437x815947424382058500';
         });
         

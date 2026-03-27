@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¡Revisa esto!</title>
+    <title>Action Required: Complete Your Order</title>
     <style>
         * {
             margin: 0;
@@ -139,6 +139,7 @@
             margin: 20px 0;
         }
 
+        /* --- ESTILOS DA TSL --- */
         .tsl-wrapper {
             text-align: left;
             background-color: transparent;
@@ -150,34 +151,25 @@
             color: #2c3e50;
             font-size: 17px;
         }
-        .tsl-wrapper p { margin-bottom: 15px; }
-        .tsl-wrapper strong { color: #000; }
-        .tsl-red { color: #c41e3a; font-weight: 700; }
-        .tsl-highlight { background-color: #ffff00; padding: 2px 4px; font-weight: 700; }
         
-        .testimonial-box {
-            background-color: #f0fdf4;
-            border-left: 4px solid #27af60;
-            padding: 15px;
-            margin: 20px 0;
-            font-style: italic;
-            border-radius: 0 4px 4px 0;
+        .tsl-wrapper p { 
+            margin-bottom: 18px; 
         }
-        .testimonial-text {
-            color: #333;
-            margin-bottom: 8px;
-            display: block;
+        
+        .tsl-wrapper strong { 
+            color: #000; 
         }
-        .testimonial-name {
-            display: block;
+        
+        .tsl-heading {
+            font-size: 20px;
+            color: #c41e3a;
+            margin: 35px 0 15px;
             font-weight: 700;
-            font-style: normal;
-            color: #27af60;
-            font-size: 14px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 5px;
         }
-        
+
         .sound-notice {
             display: flex;
             align-items: center;
@@ -191,19 +183,9 @@
         }
         
         .sound-icon { font-size: 24px; }
-        .sound-notice p { font-size: 15px; color: #2c3e50; }
+        .sound-notice p { font-size: 15px; color: #2c3e50; margin: 0; }
         
-        .decline-link {
-            margin-top: 15px;
-            cursor: pointer;
-            font-size: 16px;
-            text-decoration: underline;
-            color: #7f8c8d;
-            transition: color 0.3s ease;
-        }
-        
-        .decline-link:hover { color: #34495e; }
-        
+        /* MODAL */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -227,6 +209,7 @@
             padding: 40px 30px;
             position: relative;
             box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            text-align: center;
         }
         
         .modal-close {
@@ -263,7 +246,7 @@
             .nav-tab { padding: 10px 4px; font-size: 10px; gap: 4px; }
             .checkmark { font-size: 14px; }
             
-            .content-box { padding: 10px 0; } 
+            .content-box { padding: 10px 0; }
             
             .modal-content { padding: 30px 20px; margin: 0 10px; max-width: 100%; }
             .modal-title { font-size: 26px; }
@@ -276,65 +259,124 @@
 <body>
     <div class="warning-banner">
         <span class="warning-icon">⚠️</span>
-        <strong>ADVERTENCIA:</strong> No cierre ni actualice esta página, <strong>ya que puede causar errores con su compra</strong>.
+        <strong>WARNING:</strong> Do not close or refresh this page, <strong>as it may cause errors with your purchase</strong>.
     </div>
     
     <div class="secure-badge">
-        <img src="https://upgradeyourorder.com/wp-content/uploads/2025/10/secure-3.png" alt="Pago Seguro">
+        <img src="https://upgradeyourorder.com/wp-content/uploads/2025/10/secure-3.png" alt="Secure Payment">
     </div>
     
     <div class="nav-tabs">
-        <div class="nav-tab completed"><span class="checkmark">✓</span> INFO DE COMPRA</div>
-        <div class="nav-tab active">¡NUEVA OPORTUNIDAD!</div>
-        <div class="nav-tab pending"><div class="loader"></div> CONFIRMACIÓN DE PEDIDO</div>
+        <div class="nav-tab completed"><span class="checkmark">✓</span> PURCHASE INFO</div>
+        <div class="nav-tab active">NEW OPPORTUNITY!</div>
+        <div class="nav-tab pending"><div class="loader"></div> ORDER CONFIRMATION</div>
     </div>
     
     <div class="container">
         <div class="content-box">
-            <h1>Su pedido aún no está completo</h1>
-            <p class="subtitle">Por favor, vea este mensaje urgente a continuación ahora</p>
+            <h1>Your Order Is Not Complete Yet</h1>
+            <p class="subtitle">Please read this Urgent Message Below Now</p>
             
             <div class="arrow-down">↓</div>
             
             <div class="tsl-wrapper">
-                <vturb-smartplayer id="vid-69c054e30817c06e8a7c8edd" style="display: block; margin: 0 auto; width: 100%; "></vturb-smartplayer> 
-                <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/players/69c054e30817c06e8a7c8edd/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
                 
-            
+                <h3 class="tsl-heading">1. Relieves Anxiety + Future Perfect</h3>
+                
+                <p><strong>Okay, my friend, your access is all set.</strong> Just remember that to log in, all you have to do is click the green button below, and all the content will be available to you.</p>
+                
+                <p>But first, listen to what I have to say. There’s a fear that most men carry in silence.</p>
+                
+                <p>The silent dread of not being enough, of finishing too quickly, of going soft too soon.</p>
+                
+                <p><strong>But imagine this.</strong></p>
+                
+                <p>Imagine a version of yourself that lasts as long as you decide. Not stopping when your body gives up—but choosing your moment, like a man in control of the situation. Imagine the look on her face. The way she looks at you differently now. The way she seeks you out. The way she tells her friends.</p>
+
+                <h3 class="tsl-heading">2. The Scale of the Problem</h3>
+                
+                <p>Let’s be brutally honest for a moment.</p>
+                
+                <p>You already know something is wrong. You’ve known for a while. Maybe it started gradually—an occasional slip-up you brushed off as stress. Then it became more frequent. Then the anxiety about the anxiety itself set in.</p>
+                
+                <p><strong>And that’s when performance became a problem.</strong></p>
+                
+                <p>You started avoiding it. Making up excuses. Going to bed too late. Pretending you were tired. Because the idea of failing again—in front of her—was worse than not even trying.</p>
+                
+                <p>You’ve seen other men. Men who carry that effortless confidence. Men who don’t seem to think twice. Men who seem to have never questioned their ability in bed. And whether you admit it or not, the comparison burns inside.</p>
+                
+                <p>Because you’re not supposed to talk about this. Men don’t talk. So it simmers in silence.</p>
+                
+                <p>You’ve probably tried things. Products that promised the world and delivered nothing. Outlandish home remedies. Tricks that worked once and never again. And with every failed attempt, the wound grew deeper.</p>
+                
+                <p>Because none of that addressed the <strong>real problem</strong>.</p>
+                
+                <p>And here’s the cruelest part: the more you try and fail, the heavier the psychological burden becomes. The bedroom becomes a battleground. Your body becomes your enemy. And your partner—no matter how much she loves you—begins to feel the distance.</p>
+                
+                <p>This isn’t about age. It isn’t about bad luck. It isn’t about who you are as a man.</p>
+                
+                <p>It’s about what’s preventing your body from functioning as it should. <strong>And the solution was hidden in your kitchen the whole time.</strong></p>
+
+                <h3 class="tsl-heading">The Science Nobody Tells You</h3>
+
+                <p>What if a simple ritual involving water and baking soda could change all that?</p>
+                
+                <p>Not a pill. Not an injection. Not an embarrassing doctor’s visit. A drink. Natural. Inexpensive. Powerful. And almost completely ignored by conventional science—because there’s no profit in anyone telling you about it.</p>
+                
+                <p><strong>The Baking Soda Trick.</strong></p>
+                
+                <p>It seems too simple. That’s exactly why it works—and exactly why no one wants you to know about it.</p>
+                
+                <p>Here’s what research in men’s health biology reveals: the main enemy of your performance isn’t age. It’s the internal environment of your body—acidified, overloaded with everyday toxins, unable to produce and circulate testosterone efficiently. This acidic environment constricts blood vessels, reduces flow to the areas that matter, and leaves your body sluggish, weak, and unresponsive.</p>
+                
+                <p>Sodium bicarbonate—in the right concentration, combined with specific natural minerals—reverses this environment. It alkalizes the body, opens up circulation, and awakens cells that had been dormant under years of toxic buildup.</p>
+                
+                <p>When you drink this precise combination, <strong>your body begins to remember what it’s capable of.</strong></p>
+                
+                <p>Men who adopted this ritual reported, within a few days: a greater sense of fullness and firmness, stronger and longer-lasting erections, and—most valued of all—real control over their own performance. No more racing against the clock. No more anxiety. Just presence. Potency. Command.</p>
+                
+                <p>More thickness. More strength. More time. And all of this under your total control.</p>
+                
+                <p>You decide when it ends. You set the pace. You own the experience.</p>
+                
+                <p>The alkalization of the body and its impact on circulation and hormone production are well-documented. What was hidden was the fact that something so simple, so accessible, and so immediate could work this way.</p>
+                
+                <p>Because if you knew—truly knew—the market for expensive, temporary solutions would collapse. And they know that.</p>
+
+                <h3 class="tsl-heading">Your Turning Point</h3>
+
+                <p>This is where most men hesitate. And then they regret it.</p>
+                
+                <p>Our natural bicarbonate drink was developed with the exact ratio of alkalizing minerals to maximize blood flow, awaken your hormonal energy, and give you back the control you thought you’d lost. No artificial formulas. No dependency. No side effects. Just nature working in your favor.</p>
+                
+                <p>And best of all, this can give you up to <strong>5.3 centimeters in length and 2.4 centimeters in girth</strong>, curbing premature ejaculation and making you look like an alpha male in bed, lasting for hours during wild sex.</p>
+                
+                <p>This isn’t sold in pharmacies. It isn’t found on supermarket shelves. This offer is available here, for the men who made it to the end—because we’ve decided to cut out all the middlemen and deliver it directly to you, at the lowest possible price.</p>
+                
+                <p>Men who act today will start feeling the difference as early as this week. Men who wait will be stuck in the same cycle.</p>
+                
+                <p>You’ve already wasted enough time and money on things that didn’t come close to what you needed. This is different. And you have <strong>90 days to try it—with a full money-back guarantee</strong> if you don’t feel the transformation.</p>
+                
+                <p>Click the button below. And learn this powerful baking soda recipe. Lock in your price before this batch sells out.</p>
+                
+                <p>Because the man you’re capable of being hasn’t gone anywhere.</p>
+                
+                <p>He was just waiting for the right key. <strong>This is it.</strong></p>
+
+                <br><br>
+
+                <div style="text-align:center" id="kiwify-upsell-Z7c07Kv" data-upsell-url="https://appsell-software.com/app/god-mode?app=1773837657437x815947424382058500" data-downsell-url="https://appsell-software.com/app/god-mode?app=1773837657437x815947424382058500">
+                    <button id="kiwify-upsell-trigger-Z7c07Kv" style="background-color:#27AF60;padding:18px 24px;cursor:pointer;color:#FFFFFF;font-weight:700;border-radius:6px;border:none;font-size:22px; width: 100%; box-shadow: 0 4px 15px rgba(39, 175, 96, 0.3);">ACCESS WITH A DISCOUNT</button>
+                    <div id="kiwify-upsell-cancel-trigger-Z7c07Kv" style="margin-top:1.5rem;cursor:pointer;font-size:16px;text-decoration:underline;font-family:sans-serif; color: #7f8c8d;">No, pay the full price and not get access</div>
+                </div>
+                <script src="https://snippets.kiwify.com/upsell/upsell.min.js"></script>
                 <br>
 
-<div style="text-align:center" id="kiwify-upsell-J11KfhM" data-upsell-url="https://appsell-software.com/app/protocolo-sal-rosa" data-downsell-url="https://appsell-software.com/app/protocolo-sal-rosa">
-          <button id="kiwify-upsell-trigger-J11KfhM" style="background-color:#27AF60;padding:12px 16px;cursor:pointer;color:#FFFFFF;font-weight:600;border-radius:4px;border:1px solid #27AF60;font-size:20px;">HAGA CLIC AQUÍ PARA ACCEDER CON DESCUENTO</button>
-          <div id="kiwify-upsell-cancel-trigger-J11KfhM" style="margin-top:1rem;cursor:pointer;font-size:16px;text-decoration:underline;font-family:sans-serif;">No, gracias - No acceder</div>
-        </div><script src="https://snippets.kiwify.com/upsell/upsell.min.js"></script>
-                
-        <br>
-
-  <script>
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        const confirmBtn = document.getElementById('kiwify-upsell-modal-charge');
-        if (confirmBtn) {
-          confirmBtn.click();
-          // Opcional: Para o observer após clicar
-          observer.disconnect();
-        }
-      });
-    });
-
-    observer.observe(document.body, {
-      childList: true,
-      subtree: true
-    });
-  </script>
-
-                
-                
-                <p><strong>Garantía incondicional de por vida. Para siempre.</strong> Si en algún momento decides que no funcionó para tu salud, te reembolsaré hasta el último centavo. Sin preguntas, sin explicaciones, sin dramas. Esta página puede ser eliminada de Internet en cualquier momento. No dejes que el arrepentimiento y la enfermedad te persigan por el resto de tu vida.</p>
             </div>
+            
             <div class="sound-notice">
                 <span class="sound-icon">🛡️</span>
-                <p>Acceso Seguro y Garantía de Por Vida</p>
+                <p>Secure Access & Lifetime Guarantee</p>
             </div>
             
         </div>
@@ -344,46 +386,57 @@
         <div class="modal-content">
             <span class="modal-close" id="modalClose">&times;</span>
             <div class="modal-header">
-                <div class="modal-icon">⚠️</div>
-                <h2 class="modal-title">¡ESPERA! ¿Estás SEGURO?</h2>
-                <p class="modal-subtitle">Estás a punto de perderte la oferta de tu vida...</p>
+                <div class="modal-icon" style="font-size: 40px;">⚠️</div>
+                <h2 class="modal-title">WAIT! Are You SURE?</h2>
+                <p class="modal-subtitle">You're About To Miss The Deal Of A Lifetime...</p>
             </div>
             <div class="modal-body">
-                <p style="text-align: center;"><strong>Este descuento del 90% desaparece cuando cierras esta página.</strong></p>
+                <p style="text-align: center; font-size: 18px;"><strong>This 90% discount disappears when you close this page.</strong></p>
                 <div style="text-align: center; margin: 30px 0 25px;">
                     <div class="price-strike">Regular: $197</div>
-                    <div class="price-now">Hoy: $69</div>
+                    <div class="price-now">Today: $69</div>
                 </div>
                 <div class="modal-buttons">
-                    <button id="acceptModalBtn" class="btn-accept">Está bien, he cambiado de opinión.</button>
-                    <button id="declineModalBtn" class="btn-decline">No, pagaré el precio completo más tarde</button>
+                    <button id="acceptModalBtn" class="btn-accept">Okay, I've changed my mind.</button>
+                    <button id="declineModalBtn" class="btn-decline">No, I'll pay full price later</button>
                 </div>
             </div>
         </div>
     </div>
     
     <script>
-        const openModalBtn = document.getElementById('openModalBtn');
+        // Lógica do Modal
         const modal = document.getElementById('declineModal');
         const modalClose = document.getElementById('modalClose');
         const acceptModalBtn = document.getElementById('acceptModalBtn');
         const declineModalBtn = document.getElementById('declineModalBtn');
-        const mainCTAButton = document.getElementById('kiwify-upsell-trigger-EYrrCv4');
         
-        openModalBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        });
+        // CORREÇÃO: Apontando para o NOVO ID do botão do Kiwify (Z7c07Kv)
+        const mainCTAButton = document.getElementById('kiwify-upsell-trigger-Z7c07Kv');
+        
+        // Se quiser que o link de recusar original abra o modal ao invés de redirecionar nativamente, 
+        // adicione o ID 'openModalBtn' ao texto de cancelamento no HTML acima e descomente o bloco abaixo:
+        /*
+        const openModalBtn = document.getElementById('openModalBtn');
+        if(openModalBtn) {
+            openModalBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        }
+        */
         
         acceptModalBtn.addEventListener('click', function() {
             modal.classList.remove('active');
             document.body.style.overflow = 'auto';
-            mainCTAButton.click();
+            if(mainCTAButton) mainCTAButton.click();
         });
         
         declineModalBtn.addEventListener('click', function() {
-            window.location.href = 'https://blog.trendskalla.site/up3iinglescartlas/';
+            // CORREÇÃO: Redirecionando para a sua nova URL de downsell
+            window.location.href = 'https://appsell-software.com/app/god-mode?app=1773837657437x815947424382058500';
         });
         
         modalClose.addEventListener('click', function() {
@@ -391,12 +444,14 @@
             document.body.style.overflow = 'auto';
         });
 
+        // Observer do One-Click Buy Kiwify
         (function() {
             const observer = new MutationObserver((mutations) => {
                 for (const mutation of mutations) {
                     const confirmBtn = document.getElementById('kiwify-upsell-modal-charge');
                     if (confirmBtn) {
                         confirmBtn.click();
+                        observer.disconnect();
                         break; 
                     }
                 }
@@ -404,6 +459,5 @@
             observer.observe(document.body, { childList: true, subtree: true });
         })();
     </script>
-    <script src="https://snippets.kiwify.com/upsell/upsell.min.js"></script>
 </body>
 </html>
